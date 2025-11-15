@@ -1,0 +1,2 @@
+# SMDocs
+Self-Maintaining Documents
