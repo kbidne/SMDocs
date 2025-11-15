@@ -1,262 +1,677 @@
-# SMDocs Documentation Index
+# [PROJECT_NAME] Documentation Index
 
-**Last Updated:** 2025-11-15
-**Total Documents:** 3
+**Last Updated:** [YYYY-MM-DD]
+**Total Documents:** [NUMBER]
 
-This is the **central registry** of all documentation for the SMDocs (Self-Maintaining Documents) project. All documents are listed here with descriptions, categories, and last updated timestamps.
-
----
-
-## How to Use This Index
-
-1. **Starting a new session?** → Read this file first to see what documents exist
-2. **Looking for information?** → Use the categories below to find the right document
-3. **Created a new document?** → Add it to this index immediately
-4. **Modified a document?** → Update its timestamp below
+This is the **central registry** of all documentation for [PROJECT_NAME]. All documents are organized by **Teams** (knowledge domains) with descriptions, timestamps, and cross-references.
 
 ---
 
-## Documentation Categories
+## 🎯 Quick Start
 
-### 📋 Bootstrap Templates (3)
+1. **New to the project?** → Read README.md, then claude.md (Mission Control)
+2. **Looking for specific info?** → Use the Teams below to find the right domain
+3. **Created a document?** → Add it to the appropriate team category immediately
+4. **Modified a document?** → Update its timestamp in both the document AND this index
 
-These are the core templates that users copy to their own projects.
+---
+
+## 🏛️ Documentation by Team
+
+### 📚 **The Library** - Documentation Central ([NUMBER] docs)
+
+Meta-documentation, knowledge management, and system documentation.
 
 #### README.md
-- **Purpose:** Comprehensive guide for using the SMDocs bootstrap system in any project
-- **Audience:** Developers setting up self-documenting projects, AI agents implementing the system
-- **Last Updated:** 2025-11-15
+- **Team:** The Library
+- **Purpose:** Project overview, quick start guide, entry point for all users
+- **Audience:** Everyone - new contributors, users, stakeholders
+- **Last Updated:** [YYYY-MM-DD]
 - **Key Sections:**
-  - What's included in the bootstrap system
-  - Why use this self-documenting approach
-  - Step-by-step bootstrap instructions
-  - Core principles (sync, cross-references, central registry)
-  - Daily usage patterns
-  - Best practices and success metrics
-  - Advanced customization options
-  - Real-world example from domideas project
-  - Troubleshooting common issues
-- **Related Documents:**
-  - claude.md (template for AI instructions)
-  - document-index.md (template for doc registry)
+  - What is [PROJECT_NAME]?
+  - Quick start and installation
+  - Links to team-specific documentation
+  - How to contribute
+- **Related Teams:**
+  - All teams (serves as entry point)
 
 ---
 
 #### claude.md
-- **Purpose:** Template for AI agent instructions and documentation maintenance workflow
-- **Audience:** AI agents (Claude Code, etc.), developers customizing for their projects
-- **Last Updated:** 2025-11-15
+- **Team:** The Library
+- **Purpose:** Mission Control for all AI agents - workflows, team structure, governance
+- **Audience:** AI agents (Claude Code, etc.), human maintainers
+- **Last Updated:** [YYYY-MM-DD]
 - **Key Sections:**
-  - Project overview section (customizable placeholder)
-  - **CRITICAL: Documentation maintenance instructions**
-    - Mandatory steps when creating documents
-    - Mandatory steps when modifying documents
-    - Mandatory steps when updating claude.md itself
-  - Documentation structure and cross-reference rules
-  - Git workflow and commit message guidelines
-  - Development workflow templates
-  - Code organization instructions
-  - AI-specific instructions for context management
-  - Quality standards and success criteria
-  - Common tasks quick reference
-  - Troubleshooting guide
-  - Project-specific conventions (customizable)
-- **Related Documents:**
-  - document-index.md (must stay in sync)
-  - README.md (explains how to use this template)
+  - **Team Structure** (7 teams with clear responsibilities)
+  - **Mandatory Workflows** (creating/modifying documents)
+  - **Conversational Intent Mapping** (routing user requests to teams)
+  - **Governance Rules** and **Policy Hierarchy**
+  - **Self-Evolution Protocol** (how system improves itself)
+  - AI Agent Protocols and best practices
+- **Related Teams:**
+  - All teams (coordinates all documentation)
 
 ---
 
 #### document-index.md
-- **Purpose:** Template for central documentation registry (THIS FILE when customized)
-- **Audience:** Everyone - serves as single source of truth for documentation
-- **Last Updated:** 2025-11-15
+- **Team:** The Library
+- **Purpose:** Central registry of all documents (THIS FILE)
+- **Audience:** Everyone - single source of truth for what docs exist
+- **Last Updated:** [YYYY-MM-DD]
 - **Key Sections:**
-  - Complete document listing with descriptions
-  - Customizable categories for different doc types
-  - Timestamp tracking for freshness monitoring
-  - Cross-reference map visualization
-  - Document status tracking (complete/in-progress/planned)
-  - Maintenance checklist
-  - Document freshness indicators
-  - Quick navigation shortcuts
-  - Document statistics
-  - Version history
-- **Related Documents:**
-  - claude.md (explains how to maintain this registry)
-  - README.md (explains how to customize this template)
+  - Complete document listing organized by teams
+  - Team-based categorization
+  - Timestamp tracking for freshness
+  - Cross-reference map by team
+  - Document status tracking
+  - Quick navigation
+- **Related Teams:**
+  - All teams (tracks all documentation)
 
 ---
 
-## Future Documents (Planned)
+### 🔬 **The AI Lab** - AI Agents & Automation ([NUMBER] docs)
 
-Potential additions to the SMDocs bootstrap system:
+AI agent configurations, prompts, conversational intents, and automation rules.
 
-### 🚀 Planned Documents
-
-#### EXAMPLES.md
-- **Purpose:** Real-world examples of projects using the SMDocs system
-- **Status:** Not yet created
-- **Create When:** Multiple projects have adopted the system
-- **Should Include:**
-  - Case studies from different project types
-  - Before/after documentation comparisons
-  - Lessons learned from implementations
-  - Common customization patterns
-
-#### CONTRIBUTING.md
-- **Purpose:** Guidelines for contributing to the SMDocs project itself
-- **Status:** Not yet created
-- **Create When:** Opening to external contributors
-- **Should Include:**
-  - How to improve templates
-  - How to submit template variations
-  - Code of conduct
-  - PR guidelines for documentation improvements
-
-#### CHANGELOG.md
-- **Purpose:** Track versions and improvements to the bootstrap system
-- **Status:** Not yet created
-- **Create When:** First major revision to templates
-- **Should Include:**
-  - Version numbers for template releases
-  - Template improvements and bug fixes
-  - Breaking changes to template structure
-  - Migration guides for existing users
+#### AI_AGENTS.md
+- **Team:** The AI Lab
+- **Purpose:** Registry of all AI agents, their roles, capabilities, and constraints
+- **Audience:** AI agents, developers, system administrators
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Agent registry (name, role, capabilities)
+  - Agent coordination rules
+  - Constraints and limitations
+  - Inter-agent communication protocols
+- **Related Teams:**
+  - The Library: References claude.md for workflows
+  - The Vault: Adheres to security policies
 
 ---
 
-## Cross-Reference Map
+#### INTENTS.md
+- **Team:** The AI Lab
+- **Purpose:** Conversational intent mapping - routing user requests to correct teams/actions
+- **Audience:** AI agents, prompt engineers
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Intent classification rules
+  - Routing table (intent → team → documents)
+  - Ambiguity resolution strategies
+  - Intent examples and edge cases
+- **Related Teams:**
+  - The Library: Implements routing defined in claude.md
+  - All teams: Maps intents to team documentation
 
-This shows how documents relate to each other:
+---
+
+#### PROMPTS.md
+- **Team:** The AI Lab
+- **Purpose:** Reusable prompt templates, patterns, and best practices
+- **Audience:** Prompt engineers, AI agents, developers
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Prompt template library
+  - Versioning and testing guidelines
+  - Team-specific prompt patterns
+  - Prompt optimization techniques
+- **Related Teams:**
+  - The Library: Follows documentation standards
+  - The Vault: Respects security and privacy policies
+
+---
+
+#### AUTOMATION.md
+- **Team:** The AI Lab
+- **Purpose:** Automated workflows, triggers, and orchestration rules
+- **Audience:** DevOps, AI agents, automation engineers
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Automation workflows and triggers
+  - CI/CD integration for AI agents
+  - Self-healing documentation processes
+  - Monitoring and alerting for automation
+- **Related Teams:**
+  - The Command Center: Deployment automation
+  - The Vault: Automation security policies
+
+---
+
+### 🏗️ **The Workshop** - Engineering & Architecture ([NUMBER] docs)
+
+Code architecture, technical decisions, development processes, and testing.
+
+#### ARCHITECTURE.md
+- **Team:** The Workshop
+- **Purpose:** System architecture, technical design, and architectural decisions
+- **Audience:** Engineers, architects, technical leads
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - System architecture diagrams
+  - Component relationships
+  - Data flow and state management
+  - Scalability and performance considerations
+- **Related Teams:**
+  - The Studio: Implements product requirements
+  - The Vault: Follows security architecture guidelines
+  - The Council: Records ADRs
+
+---
+
+#### TECH_STACK.md
+- **Team:** The Workshop
+- **Purpose:** Technologies, frameworks, libraries, and tools used in the project
+- **Audience:** Engineers, new team members, technical stakeholders
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Languages and frameworks
+  - Libraries and dependencies
+  - Development tools and IDE setup
+  - Rationale for technology choices
+- **Related Teams:**
+  - The Council: Technology decisions
+  - The Command Center: Deployment technologies
+
+---
+
+#### API_REFERENCE.md
+- **Team:** The Workshop
+- **Purpose:** Comprehensive API documentation for all services and modules
+- **Audience:** Engineers, API consumers, integration partners
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - API endpoints and methods
+  - Request/response formats
+  - Authentication and authorization
+  - Error codes and handling
+  - Examples and code snippets
+- **Related Teams:**
+  - The Vault: API security policies
+  - The Studio: API use cases
+
+---
+
+#### TESTING.md
+- **Team:** The Workshop
+- **Purpose:** Testing strategy, QA processes, test coverage requirements
+- **Audience:** Engineers, QA team, test automation engineers
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Testing strategy (unit, integration, E2E)
+  - Coverage requirements and goals
+  - Test automation setup
+  - Performance and load testing
+- **Related Teams:**
+  - The Studio: User acceptance testing
+  - The Command Center: Production testing
+
+---
+
+### 🎨 **The Studio** - Product & Design ([NUMBER] docs)
+
+Product requirements, UX/UI design, user workflows, and feature backlog.
+
+#### REQUIREMENTS.md
+- **Team:** The Studio
+- **Purpose:** Product requirements, specifications, and feature definitions
+- **Audience:** Product managers, engineers, stakeholders
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Core product requirements
+  - Feature specifications
+  - User stories and acceptance criteria
+  - Success metrics
+- **Related Teams:**
+  - The Workshop: Technical implementation
+  - The Council: Stakeholder approvals
+  - The Vault: Compliance requirements
+
+---
+
+#### DESIGN_SYSTEM.md
+- **Team:** The Studio
+- **Purpose:** Design patterns, UI components, brand guidelines, style guide
+- **Audience:** Designers, frontend engineers, brand managers
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Design tokens and variables
+  - Component library
+  - Typography and color system
+  - Accessibility standards
+  - Brand guidelines
+- **Related Teams:**
+  - The Workshop: Component implementation
+  - The Vault: Accessibility compliance
+
+---
+
+#### USER_WORKFLOWS.md
+- **Team:** The Studio
+- **Purpose:** User journeys, interaction patterns, and workflow documentation
+- **Audience:** Product designers, UX researchers, product managers
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - User personas
+  - Journey maps and flows
+  - Interaction patterns
+  - Pain points and opportunities
+- **Related Teams:**
+  - The Workshop: Workflow implementation
+  - The Studio: Design system components
+
+---
+
+#### BACKLOG.md
+- **Team:** The Studio
+- **Purpose:** Feature ideas, product roadmap, prioritization framework
+- **Audience:** Product managers, stakeholders, engineering leads
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Feature backlog by priority
+  - Roadmap by version/milestone
+  - Prioritization criteria
+  - Ideas and experiments
+- **Related Teams:**
+  - The Council: Strategic priorities
+  - The Workshop: Technical feasibility
+
+---
+
+### 🛡️ **The Vault** - Security & Governance ([NUMBER] docs)
+
+Security policies, compliance rules, data governance, and business rules.
+
+#### SECURITY.md
+- **Team:** The Vault
+- **Purpose:** Security policies, threat model, vulnerability reporting
+- **Audience:** Security team, engineers, compliance officers
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Security policies and standards
+  - Threat model and attack vectors
+  - Vulnerability reporting process
+  - Security incident response
+- **Related Teams:**
+  - The Workshop: Security implementation
+  - The Command Center: Security monitoring
+  - The Council: Security decisions
+
+---
+
+#### COMPLIANCE.md
+- **Team:** The Vault
+- **Purpose:** Regulatory compliance requirements (GDPR, SOC2, etc.)
+- **Audience:** Compliance officers, legal team, engineers
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Applicable regulations
+  - Compliance requirements
+  - Audit trails and evidence
+  - Compliance monitoring
+- **Related Teams:**
+  - The Vault: Related policies
+  - The Command Center: Compliance infrastructure
+
+---
+
+#### BUSINESS_RULES.md
+- **Team:** The Vault
+- **Purpose:** Critical business logic, policies, and non-negotiable rules
+- **Audience:** All teams - these rules override technical preferences
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Business logic rules
+  - Policy statements
+  - Rule hierarchy and conflicts
+  - Exceptions and edge cases
+- **Related Teams:**
+  - All teams: Must adhere to these rules
+
+---
+
+#### DATA_GOVERNANCE.md
+- **Team:** The Vault
+- **Purpose:** Data handling, privacy policies, retention rules, data lifecycle
+- **Audience:** Data engineers, compliance officers, engineers
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Data classification
+  - Privacy policies
+  - Retention and deletion rules
+  - Data access controls
+- **Related Teams:**
+  - The Workshop: Data architecture
+  - The Command Center: Data backups
+
+---
+
+### ⚙️ **The Command Center** - Operations ([NUMBER] docs)
+
+Deployment, monitoring, incident response, and infrastructure management.
+
+#### DEPLOYMENT.md
+- **Team:** The Command Center
+- **Purpose:** Deployment procedures, infrastructure as code, CI/CD pipelines
+- **Audience:** DevOps, SREs, release managers
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Deployment procedures
+  - Environment configuration
+  - CI/CD pipeline setup
+  - Rollback procedures
+- **Related Teams:**
+  - The Workshop: Build artifacts
+  - The Vault: Deployment security
+
+---
+
+#### RUNBOOK.md
+- **Team:** The Command Center
+- **Purpose:** Operational procedures, troubleshooting guides, on-call playbooks
+- **Audience:** On-call engineers, SREs, support team
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Common operational tasks
+  - Troubleshooting guides
+  - Emergency procedures
+  - Escalation paths
+- **Related Teams:**
+  - The Workshop: Technical troubleshooting
+  - The Vault: Security incidents
+
+---
+
+#### MONITORING.md
+- **Team:** The Command Center
+- **Purpose:** Observability, metrics, alerts, dashboards, SLOs
+- **Audience:** SREs, engineers, on-call team
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Monitoring strategy
+  - Key metrics and SLIs/SLOs
+  - Alert definitions and thresholds
+  - Dashboard locations
+- **Related Teams:**
+  - The Workshop: Application metrics
+  - The Vault: Security monitoring
+
+---
+
+#### INCIDENTS.md
+- **Team:** The Command Center
+- **Purpose:** Incident response procedures, post-mortems, lessons learned
+- **Audience:** Incident commanders, SREs, engineering leadership
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Incident response process
+  - Post-mortem template
+  - Historical incidents
+  - Action items and improvements
+- **Related Teams:**
+  - The Council: Major incident communication
+  - The Workshop: Technical root causes
+
+---
+
+### 🤝 **The Council** - Stakeholders & Decisions ([NUMBER] docs)
+
+Business context, stakeholder decisions, organizational knowledge, and glossary.
+
+#### STAKEHOLDERS.md
+- **Team:** The Council
+- **Purpose:** Key stakeholders, roles, responsibilities, communication channels
+- **Audience:** All team members, especially leadership
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Stakeholder directory
+  - Roles and responsibilities
+  - Communication channels
+  - Decision-making authority
+- **Related Teams:**
+  - All teams: Stakeholder alignment
+
+---
+
+#### DECISIONS.md
+- **Team:** The Council
+- **Purpose:** Architecture Decision Records (ADRs), major choices, rationale
+- **Audience:** All team members, especially architects and leadership
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Decision log (ADR format)
+  - Context and rationale
+  - Consequences and trade-offs
+  - Status (proposed, accepted, deprecated)
+- **Related Teams:**
+  - The Workshop: Technical decisions
+  - The Studio: Product decisions
+  - The Vault: Governance decisions
+
+---
+
+#### GLOSSARY.md
+- **Team:** The Council
+- **Purpose:** Business terminology, domain language, acronyms, standard terms
+- **Audience:** All team members, especially new joiners
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Business terminology
+  - Technical acronyms
+  - Team names and roles
+  - Domain-specific language
+- **Related Teams:**
+  - All teams: Consistent terminology
+
+---
+
+#### CONTEXT.md
+- **Team:** The Council
+- **Purpose:** Business background, organizational knowledge, "why we exist"
+- **Audience:** All team members, especially new joiners and stakeholders
+- **Last Updated:** [YYYY-MM-DD]
+- **Key Sections:**
+  - Business context
+  - Company/product history
+  - Market positioning
+  - Strategic goals
+- **Related Teams:**
+  - The Studio: Product vision
+  - The Council: Strategic decisions
+
+---
+
+## 📊 Cross-Team Reference Map
+
+This shows how teams collaborate and reference each other:
 
 ```
-README.md (Bootstrap Usage Guide - Entry Point)
-    ├── Explains how to use templates ──┐
-    │                                   │
-    ├── claude.md (AI Instructions Template)
-    │   └── References document-index.md for doc tracking
-    │
-    └── document-index.md (Doc Registry Template - This File)
-        └── References claude.md for maintenance workflow
+🏛️ The Library (Mission Control)
+    ├── Coordinates all teams
+    ├── claude.md defines team structure
+    └── document-index.md tracks all docs
 
-Future Documents:
-    ├── EXAMPLES.md (Real-world case studies)
-    ├── CONTRIBUTING.md (How to improve templates)
-    └── CHANGELOG.md (Version history)
+🔬 The AI Lab
+    ├── References: The Library (workflows)
+    ├── References: The Vault (security policies)
+    └── Supports: All teams (automation)
+
+🏗️ The Workshop
+    ├── References: The Studio (requirements)
+    ├── References: The Vault (security architecture)
+    ├── References: The Council (tech decisions)
+    └── Implements: Product features
+
+🎨 The Studio
+    ├── References: The Council (strategic direction)
+    ├── References: The Vault (compliance requirements)
+    └── Defines: User experience
+
+🛡️ The Vault (Highest Priority)
+    ├── Governs: All teams
+    ├── Overrides: Technical preferences when needed
+    └── Ensures: Security, compliance, business rules
+
+⚙️ The Command Center
+    ├── References: The Workshop (deployment artifacts)
+    ├── References: The Vault (operational security)
+    └── Operates: Production systems
+
+🤝 The Council
+    ├── Provides: Business context to all teams
+    ├── Records: Major decisions
+    └── Maintains: Stakeholder alignment
 ```
 
 ---
 
-## Document Status Tracking
+## 🔄 Policy Hierarchy
+
+When teams conflict, this priority order applies:
+
+1. 🛡️ **The Vault** (Security & Compliance) - HIGHEST PRIORITY
+2. 🤝 **The Council** (Business Rules & Stakeholder Decisions)
+3. 🎨 **The Studio** (Product Requirements)
+4. 🏗️ **The Workshop** (Technical Architecture)
+5. 🔬 **The AI Lab** (AI Agent Preferences) - LOWEST PRIORITY
+
+**Example:** If The Vault prohibits something, all other teams must comply.
+
+---
+
+## 📋 Document Status Tracking
 
 ### ✅ Complete & Up-to-Date
-- README.md (Bootstrap usage guide)
-- claude.md (AI instructions template)
-- document-index.md (Doc registry template)
+
+**The Library:**
+- README.md
+- claude.md
+- document-index.md
+
+**The AI Lab:**
+- (Add docs as created)
+
+**The Workshop:**
+- (Add docs as created)
+
+**The Studio:**
+- (Add docs as created)
+
+**The Vault:**
+- (Add docs as created)
+
+**The Command Center:**
+- (Add docs as created)
+
+**The Council:**
+- (Add docs as created)
 
 ### 🚧 In Progress
-- (None currently)
+- (List docs currently being written)
 
 ### 📝 Planned
-- EXAMPLES.md (Real-world case studies)
-- CONTRIBUTING.md (Contribution guidelines)
-- CHANGELOG.md (Version history)
+- (List planned future documents)
 
 ---
 
-## Maintenance Checklist
+## 🧪 Maintenance Checklist
 
-When you create or modify documents, ensure:
+When creating or modifying documents:
 
-- [ ] Document is listed in this index
-- [ ] Timestamp is current (YYYY-MM-DD format)
-- [ ] Description accurately reflects content
-- [ ] Related documents are cross-linked
-- [ ] Document category is appropriate
-- [ ] Cross-reference map is updated if needed
-- [ ] All changes committed atomically
+- [ ] Document assigned to correct team
+- [ ] Listed in this index under team category
+- [ ] Timestamp current (YYYY-MM-DD) in doc AND index
+- [ ] Description accurate and clear
+- [ ] Related teams cross-referenced
+- [ ] Bidirectional links present
+- [ ] Policy hierarchy respected
+- [ ] Changes committed atomically
 
 ---
 
-## Document Freshness
+## 📅 Document Freshness
 
 **Recently Updated (Last 7 Days):**
-- README.md (2025-11-15)
-- claude.md (2025-11-15)
-- document-index.md (2025-11-15)
+- (List docs updated in last 7 days)
 
 **Needs Review (>30 Days Old):**
-- (None - all documents created today)
+- (List docs older than 30 days)
 
 **Stale (>90 Days Old):**
-- (None - all documents created today)
+- (List docs older than 90 days that need refresh)
 
 ---
 
-## Quick Navigation
+## 🎯 Quick Navigation by Need
 
-**Want to bootstrap a new project?**
-→ Start with [README.md](./README.md) for complete instructions
+**Setting up as new AI agent?**
+→ Read README.md, then claude.md (entire file), then document-index.md
 
-**Need the AI instructions template?**
-→ Copy [claude.md](./claude.md) to your project and customize
+**Need to understand AI capabilities?**
+→ The AI Lab: AI_AGENTS.md, INTENTS.md, PROMPTS.md
 
-**Need the doc registry template?**
-→ Copy [document-index.md](./document-index.md) to your project and customize
+**Working on features?**
+→ The Studio: REQUIREMENTS.md, DESIGN_SYSTEM.md, BACKLOG.md
 
-**Working on SMDocs itself?**
-→ This file (document-index.md) tracks the bootstrap templates
+**Implementing code?**
+→ The Workshop: ARCHITECTURE.md, TECH_STACK.md, API_REFERENCE.md
 
-**Want to see a real example?**
-→ Check the domideas project referenced in README.md
+**Checking security/compliance?**
+→ The Vault: SECURITY.md, BUSINESS_RULES.md, COMPLIANCE.md
 
----
+**Deploying or operating systems?**
+→ The Command Center: DEPLOYMENT.md, RUNBOOK.md, MONITORING.md
 
-## Document Statistics
-
-- **Total Documents:** 3 (current) + 3 (planned) = 6 total
-- **Total Words:** ~4,500 words across all current documents
-- **Documentation Coverage:** Bootstrap templates complete and ready for use
-- **Template Files:** 2 customizable templates (claude.md, document-index.md)
-- **Guide Files:** 1 comprehensive usage guide (README.md)
+**Understanding business context?**
+→ The Council: STAKEHOLDERS.md, DECISIONS.md, CONTEXT.md
 
 ---
 
-## Version History
+## 📈 Document Statistics
 
-**2025-11-15** - Initial creation
-- Created bootstrap template system
-- Added README.md (usage guide)
-- Added claude.md (AI instructions template)
-- Added document-index.md (doc registry template)
-- Established SMDocs project structure
-- Customized document-index.md for the SMDocs project itself
-- Defined planned future documents (EXAMPLES, CONTRIBUTING, CHANGELOG)
+- **Total Documents:** [NUMBER] (current) + [NUMBER] (planned) = [TOTAL]
+- **Teams:** 7 (Library, AI Lab, Workshop, Studio, Vault, Command Center, Council)
+- **Total Words:** ~[ESTIMATE] across all current documents
+- **Documentation Coverage:** [PHASE_DESCRIPTION]
+
+---
+
+## 📚 Version History
+
+**[YYYY-MM-DD]** - Team-based architecture implementation
+- Reorganized all documentation by teams
+- Created 7 knowledge domains with clear responsibilities
+- Implemented conversational intent mapping
+- Established policy hierarchy
+- Added cross-team reference map
 
 **[Future updates will be listed here]**
 
 ---
 
-## Notes
+## 📝 Notes
 
-**About SMDocs (this project):**
-- SMDocs is the bootstrap template repository
-- Users copy templates FROM this repo TO their own projects
-- This document-index.md file itself is both a template AND the registry for SMDocs
+**About This System:**
+- Documentation organized by **Teams** (knowledge domains)
+- Each team owns specific types of knowledge
+- Teams reference each other through cross-links
+- Policy hierarchy resolves conflicts
+- System is self-documenting and self-evolving
 
 **Maintenance:**
-- This index should be updated **every time** a document is created, modified, or deleted
-- Timestamps use YYYY-MM-DD format for consistency
-- Keep descriptions concise but informative (2-3 sentences max)
-- When a planned document is created, move it from "Planned" to "Complete"
-- Review this index monthly to ensure all links work and descriptions are accurate
+- Update this index **every time** a document is created/modified/deleted
+- Use YYYY-MM-DD format for all timestamps
+- Assign every document to exactly one primary team
+- Update cross-team references when teams interact
+- Respect policy hierarchy when conflicts arise
 
 **For Template Users:**
-- Copy claude.md and document-index.md to your project
-- Customize all [BRACKETED] placeholders
-- Follow the process described in README.md
+- This is a template - customize for your project
+- Add/remove teams based on your needs
+- Keep team names memorable and fun
+- Ensure conversational intents map clearly to teams
 
 ---
 
-**This document is the source of truth for what documentation exists in the SMDocs project.**
+**This document is the source of truth for what documentation exists in [PROJECT_NAME].**
