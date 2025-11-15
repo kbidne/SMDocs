@@ -79,6 +79,37 @@ git add claude.md document-index.md README.md
 git commit -m "[Docs] Initialize self-documenting system"
 ```
 
+## Quick Start: AI Agent Instructions
+
+When working with AI agents like Claude Code, you can bootstrap using simple instructions:
+
+### Simple One-Liner
+```
+Bootstrap this project with the self-documenting system from
+https://github.com/kbidne/SMDocs - copy claude.md and document-index.md
+templates and customize them for this project.
+```
+
+### Detailed Instructions
+```
+Set up SMDocs for this project:
+1. Fetch templates from https://github.com/kbidne/SMDocs
+2. Copy claude.md and document-index.md to project root
+3. Customize all [BRACKETED] placeholders
+4. Update README to reference the documentation system
+5. Commit everything together
+```
+
+### Direct File URLs
+For faster access, reference the raw files:
+```
+Fetch and customize these templates:
+- https://raw.githubusercontent.com/kbidne/SMDocs/main/claude.md
+- https://raw.githubusercontent.com/kbidne/SMDocs/main/document-index.md
+```
+
+The AI will fetch the templates, customize them for your project, and set up the self-documenting system automatically.
+
 ## Core Principles
 
 ### 1. Documents Must Stay in Sync

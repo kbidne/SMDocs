@@ -1,17 +1,17 @@
-# Claude Code Instructions for [PROJECT_NAME]
+# Claude Code Instructions for SMDocs
 
-**Last Updated:** [YYYY-MM-DD]
+**Last Updated:** 2025-11-15
 
 ---
 
 ## Project Overview
 
-**[PROJECT_NAME]** is [BRIEF_DESCRIPTION_OF_PROJECT].
+**SMDocs (Self-Maintaining Documents)** is a bootstrap template system for creating self-documenting projects optimized for AI agent collaboration across multiple sessions.
 
-**Core Innovation:** [WHAT_MAKES_THIS_PROJECT_UNIQUE]
+**Core Innovation:** Provides reusable templates that enforce documentation consistency through mandatory maintenance workflows, bidirectional cross-references, and central registry tracking.
 
-**Current Status:** [PROJECT_PHASE - e.g., Requirements & Planning, Development, Production]
-**Next Phase:** [NEXT_MILESTONE]
+**Current Status:** Bootstrap templates complete and published
+**Next Phase:** Gather real-world usage examples, create EXAMPLES.md
 
 ---
 
@@ -76,23 +76,24 @@ When you modify one document, you MUST update related documents to maintain cons
 
 ## Documentation Structure
 
-### Primary Documents (Standard Set)
+### Current Documents (Bootstrap Templates)
 
-1. **README.md** - Project overview, quick start, high-level features
-2. **document-index.md** - Central registry of all documents (THIS IS THE SOURCE OF TRUTH)
-3. **claude.md** - This file - instructions for AI agents working on the project
+1. **README.md** - Complete bootstrap usage guide for implementing SMDocs in other projects
+2. **claude.md** - This file - AI agent instructions (also serves as a template)
+3. **document-index.md** - Central registry of all documents (also serves as a template)
 
-### Common Additional Documents (Add as needed)
+### Planned Documents (Future Additions)
 
-- **REQUIREMENTS.md** - Product requirements, features, specifications
-- **ARCHITECTURE.md** or **PROJECT_STRUCTURE.md** - Technical architecture, file organization
-- **BACKLOG.md** - Future feature ideas, prioritization framework
-- **API_REFERENCE.md** - Detailed API documentation
-- **CONTRIBUTING.md** - Guidelines for contributors
-- **CHANGELOG.md** - Version history and release notes
-- **DEPLOYMENT.md** - Deployment instructions
-- **TESTING.md** - Testing strategy and test cases
-- **SECURITY.md** - Security considerations
+- **EXAMPLES.md** - Real-world case studies of projects using SMDocs
+- **CONTRIBUTING.md** - Guidelines for contributing to the SMDocs project
+- **CHANGELOG.md** - Version history and template improvements
+
+### Note on Dual Purpose
+
+The SMDocs project is unique:
+- **claude.md** and **document-index.md** are BOTH working documents for this project AND templates for others
+- Users copy these files to their projects and customize them
+- This file maintains both aspects: instructions for SMDocs AND template structure
 
 ---
 
@@ -128,14 +129,14 @@ Every major document should have a "Related Documentation" section listing:
 
 ### Branching Strategy
 
-**Current Branch:** [CURRENT_BRANCH_NAME]
+**Current Branch:** claude/create-bootstrap-docs-013CfxXHg5EgpsJsgLfopZrH
+**Main Branch:** main
 
 **Branch Naming Convention:**
 - `claude/[task-description]-[session-id]` - For AI-generated work
 - `feature/[feature-name]` - For human-developed features
 - `docs/[doc-update]` - For documentation updates
-- `bugfix/[issue-description]` - For bug fixes
-- `refactor/[what-is-refactored]` - For refactoring
+- `template/[template-improvement]` - For template enhancements
 
 ### Commit Message Guidelines
 
@@ -181,15 +182,16 @@ git commit -m "[Docs] Update index"  # <- Index is out of sync between commits!
 
 ## Development Workflow
 
-### Current Phase: [CURRENT_PHASE_NAME]
+### Current Phase: Template Distribution and Iteration
 
-[DESCRIPTION_OF_CURRENT_DEVELOPMENT_PHASE]
+SMDocs is primarily a documentation and template project, not a software development project.
 
+**Project Type:** Documentation templates and usage guides
 **Tech Stack:**
-- [FRAMEWORK/LANGUAGE]
-- [BUILD_TOOL]
-- [TESTING_FRAMEWORK]
-- [OTHER_TOOLS]
+- Markdown documentation
+- Git for version control
+- GitHub for distribution and collaboration
+- No build process required (pure documentation)
 
 ### When Starting a New Phase
 
@@ -203,26 +205,36 @@ git commit -m "[Docs] Update index"  # <- Index is out of sync between commits!
 
 ---
 
-## Code Organization Instructions
+## Template Organization Instructions
 
-### When Creating New Code Files
+### When Creating New Templates or Guides
 
-1. **Follow [ARCHITECTURE_DOCUMENT]** for file organization
-2. **Update [ARCHITECTURE_DOCUMENT]** if you deviate from the plan (with justification)
-3. **Add documentation comments** for public APIs
-4. **Update document-index.md** to include new code documentation files
+1. **Create the new document** in the project root
+2. **Update document-index.md** with the new file entry
+3. **Add cross-references** in related documents
+4. **Test the template** by applying it to a sample project
+5. **Commit all changes atomically**
 
 ### Directory Structure
 
 ```
-[PROJECT_ROOT]/
-├── [MAIN_SOURCE_DIR]/
-│   ├── [SUBDIRECTORIES]
-│   └── [FILES]
-├── [TESTS_DIR]/
-├── [DOCS_DIR]/
-└── [CONFIG_FILES]
+SMDocs/
+├── README.md                    # Bootstrap usage guide
+├── claude.md                    # AI instructions template
+├── document-index.md           # Doc registry template
+├── EXAMPLES.md                 # (Planned) Real-world examples
+├── CONTRIBUTING.md             # (Planned) Contribution guide
+├── CHANGELOG.md                # (Planned) Version history
+└── domideas-main.zip          # Reference example (from source project)
 ```
+
+### Template Quality Standards
+
+When updating templates:
+- Keep placeholders clearly marked with [BRACKETS]
+- Provide examples or comments for complex sections
+- Maintain consistency across all templates
+- Test templates by using them in a real project
 
 ---
 
@@ -397,59 +409,72 @@ Before committing documentation changes:
 ### Naming Conventions
 
 **Files:**
-- Documents: `UPPERCASE_NAME.md` (e.g., REQUIREMENTS.md) OR `lowercase-name.md`
-- Code: [YOUR_CONVENTION - e.g., kebab-case.ts, camelCase.js, PascalCase.tsx]
-- Tests: [YOUR_CONVENTION - e.g., *.test.ts, *.spec.ts, *_test.py]
+- Core templates: `lowercase-name.md` (e.g., claude.md, document-index.md)
+- Usage guides: `UPPERCASE.md` or `README.md`
+- Future docs: `UPPERCASE.md` (e.g., EXAMPLES.md, CONTRIBUTING.md, CHANGELOG.md)
 
-**Variables/Functions:**
-- [YOUR_LANGUAGE]: [YOUR_CONVENTION - e.g., camelCase, snake_case]
-- Constants: [YOUR_CONVENTION - e.g., UPPER_SNAKE_CASE]
-- Types/Classes: [YOUR_CONVENTION - e.g., PascalCase]
+**Placeholders in Templates:**
+- Always use `[BRACKETS]` for customizable sections
+- Use `[DESCRIPTIVE_NAME]` in UPPER_SNAKE_CASE for clarity
+- Include inline comments explaining what to replace
 
 ### Terminology
 
 Use consistent terminology across all documents:
 
-- **[TERM_1]** - [DEFINITION] (not "[AVOID_TERM]")
-- **[TERM_2]** - [DEFINITION] (not "[AVOID_TERM]")
-- **[TERM_3]** - [DEFINITION] (not "[AVOID_TERM]")
-
-[Add project-specific terms that should be used consistently]
+- **Bootstrap Templates** - The core files users copy (not "starter files" or "boilerplate")
+- **Self-Documenting System** - The overall approach (not "documentation system")
+- **Document Registry** - The document-index.md concept (not "doc list" or "index")
+- **AI Agent** - Claude Code and similar tools (not just "AI")
+- **Mandatory Steps** - Required workflow actions (not "recommended" or "suggested")
+- **Atomic Commits** - Committing related changes together (not "bundled commits")
+- **Bidirectional Links** - Cross-references that go both ways (not "two-way links")
+- **Template Users** - People applying SMDocs to their projects (not "consumers")
 
 ---
 
 ## Success Criteria
+
+### For SMDocs Project Itself
 
 You're doing well if:
 
 ✅ All documents listed in document-index.md actually exist
 ✅ All timestamps in document-index.md are accurate
 ✅ Cross-references are bidirectional and working
-✅ No conflicting information between documents
-✅ New contributors can onboard using just the documentation
-✅ AI agents can resume work from a new session seamlessly
+✅ Templates have clear [BRACKETED] placeholders
+✅ README.md provides complete bootstrap instructions
+✅ Templates can be copied and customized without confusion
 ✅ Commits are atomic and include all related doc updates
-✅ The documentation tells a coherent story about the project
+✅ The templates demonstrate the self-documenting system they teach
 
 You need to improve if:
 
-❌ Documents contradict each other
+❌ Templates have unclear or missing placeholders
 ❌ Links are broken or outdated
 ❌ document-index.md is missing documents
 ❌ Timestamps are wrong or missing
-❌ Changes aren't committed atomically
-❌ New documents aren't cross-referenced
-❌ Code doesn't match architecture/structure documentation
+❌ README.md instructions are incomplete or confusing
+❌ Templates contradict the principles they teach
+❌ New template users get confused during setup
+
+### For Projects Using SMDocs Templates
+
+See the template sections above for standard success criteria.
 
 ---
 
 ## Version History of This File
 
-**[YYYY-MM-DD]** - Initial creation
+**2025-11-15** - Initial creation and customization for SMDocs
+- Created bootstrap template structure
 - Established documentation maintenance workflow
 - Defined mandatory steps for document updates
 - Created cross-reference rules
-- Added project-specific conventions
+- Added SMDocs-specific conventions and terminology
+- Customized for SMDocs project (template repository)
+- Added template quality standards
+- Defined success criteria for both SMDocs and template users
 
 **[Future updates will be listed here]**
 
@@ -462,9 +487,25 @@ If you (as an AI agent) notice:
 - Ambiguous guidelines
 - Conflicts in this file
 - Better ways to structure the documentation
+- Issues with template clarity or usability
 
 → Point it out to the user and suggest improvements
 → This file should evolve as the project grows
+
+---
+
+## Note About This File's Dual Purpose
+
+This `claude.md` file serves two purposes:
+
+1. **Working Instructions for SMDocs Project** - Guides AI agents working on the SMDocs template repository itself
+2. **Template for Other Projects** - Users copy this file and customize the [BRACKETED] sections for their own projects
+
+When making changes:
+- Keep both purposes in mind
+- Maintain template sections that users will customize
+- Ensure SMDocs-specific sections don't confuse template users
+- Test that placeholders are clear and easy to replace
 
 ---
 

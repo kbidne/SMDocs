@@ -1,9 +1,9 @@
-# [PROJECT_NAME] Documentation Index
+# SMDocs Documentation Index
 
-**Last Updated:** [YYYY-MM-DD]
-**Total Documents:** [NUMBER]
+**Last Updated:** 2025-11-15
+**Total Documents:** 3
 
-This is the **central registry** of all documentation for the [PROJECT_NAME] project. All documents are listed here with descriptions, categories, and last updated timestamps.
+This is the **central registry** of all documentation for the SMDocs (Self-Maintaining Documents) project. All documents are listed here with descriptions, categories, and last updated timestamps.
 
 ---
 
@@ -18,109 +18,111 @@ This is the **central registry** of all documentation for the [PROJECT_NAME] pro
 
 ## Documentation Categories
 
-### 📋 Core Documents ([NUMBER])
+### 📋 Bootstrap Templates (3)
+
+These are the core templates that users copy to their own projects.
 
 #### README.md
-- **Purpose:** Project overview, quick start guide, high-level features
-- **Audience:** New contributors, potential users, general public
-- **Last Updated:** [YYYY-MM-DD]
+- **Purpose:** Comprehensive guide for using the SMDocs bootstrap system in any project
+- **Audience:** Developers setting up self-documenting projects, AI agents implementing the system
+- **Last Updated:** 2025-11-15
 - **Key Sections:**
-  - What is [PROJECT_NAME]?
-  - Quick start instructions
-  - Links to detailed documentation
-- **Related Documents:** All documents (serves as entry point)
+  - What's included in the bootstrap system
+  - Why use this self-documenting approach
+  - Step-by-step bootstrap instructions
+  - Core principles (sync, cross-references, central registry)
+  - Daily usage patterns
+  - Best practices and success metrics
+  - Advanced customization options
+  - Real-world example from domideas project
+  - Troubleshooting common issues
+- **Related Documents:**
+  - claude.md (template for AI instructions)
+  - document-index.md (template for doc registry)
 
 ---
 
 #### claude.md
-- **Purpose:** Instructions for AI agents working on the project, documentation maintenance workflow
-- **Audience:** Claude Code and other AI assistants, human contributors maintaining docs
-- **Last Updated:** [YYYY-MM-DD]
+- **Purpose:** Template for AI agent instructions and documentation maintenance workflow
+- **Audience:** AI agents (Claude Code, etc.), developers customizing for their projects
+- **Last Updated:** 2025-11-15
 - **Key Sections:**
-  - Project overview & current status
+  - Project overview section (customizable placeholder)
   - **CRITICAL: Documentation maintenance instructions**
-    - When you create a new document
-    - When you modify an existing document
-    - When you update claude.md itself
-  - Documentation structure & cross-reference rules
-  - Git workflow & commit message guidelines
-  - Development workflow
-  - Quality standards
-  - Project-specific conventions
+    - Mandatory steps when creating documents
+    - Mandatory steps when modifying documents
+    - Mandatory steps when updating claude.md itself
+  - Documentation structure and cross-reference rules
+  - Git workflow and commit message guidelines
+  - Development workflow templates
+  - Code organization instructions
+  - AI-specific instructions for context management
+  - Quality standards and success criteria
+  - Common tasks quick reference
+  - Troubleshooting guide
+  - Project-specific conventions (customizable)
 - **Related Documents:**
-  - document-index.md (this file - must stay in sync)
-  - All documents (provides maintenance guidelines)
+  - document-index.md (must stay in sync)
+  - README.md (explains how to use this template)
 
 ---
 
 #### document-index.md
-- **Purpose:** Central registry of all documentation (THIS FILE)
-- **Audience:** Everyone - first stop for finding documentation
-- **Last Updated:** [YYYY-MM-DD]
+- **Purpose:** Template for central documentation registry (THIS FILE when customized)
+- **Audience:** Everyone - serves as single source of truth for documentation
+- **Last Updated:** 2025-11-15
 - **Key Sections:**
-  - Complete list of all documents with descriptions
-  - Categories and organization
-  - Timestamps for tracking freshness
-  - Cross-reference map
-  - Document status tracking
+  - Complete document listing with descriptions
+  - Customizable categories for different doc types
+  - Timestamp tracking for freshness monitoring
+  - Cross-reference map visualization
+  - Document status tracking (complete/in-progress/planned)
+  - Maintenance checklist
+  - Document freshness indicators
+  - Quick navigation shortcuts
+  - Document statistics
+  - Version history
 - **Related Documents:**
-  - claude.md (explains how to maintain this file)
-  - All documents (listed within this file)
-
----
-
-### 📐 Planning & Requirements ([NUMBER])
-
-[Add your planning documents here following the same format]
-
-#### REQUIREMENTS.md
-- **Purpose:** [DESCRIPTION]
-- **Audience:** [WHO_SHOULD_READ_THIS]
-- **Last Updated:** [YYYY-MM-DD]
-- **Key Sections:**
-  - [SECTION_1]
-  - [SECTION_2]
-- **Related Documents:**
-  - [DOCUMENT_NAME] ([relationship])
-
----
-
-### 🏗️ Architecture & Technical ([NUMBER])
-
-[Add your technical documents here]
-
-#### ARCHITECTURE.md
-- **Purpose:** [DESCRIPTION]
-- **Audience:** [WHO_SHOULD_READ_THIS]
-- **Last Updated:** [YYYY-MM-DD]
-- **Key Sections:**
-  - [SECTION_1]
-  - [SECTION_2]
-- **Related Documents:**
-  - [DOCUMENT_NAME] ([relationship])
-
----
-
-### 🔧 Development & Operations ([NUMBER])
-
-[Add development/operations docs here]
+  - claude.md (explains how to maintain this registry)
+  - README.md (explains how to customize this template)
 
 ---
 
 ## Future Documents (Planned)
 
-These documents will be created as needed during development:
+Potential additions to the SMDocs bootstrap system:
 
 ### 🚀 Planned Documents
 
-#### [FUTURE_DOCUMENT_NAME.md]
-- **Purpose:** [DESCRIPTION]
+#### EXAMPLES.md
+- **Purpose:** Real-world examples of projects using the SMDocs system
 - **Status:** Not yet created
-- **Create When:** [TRIGGER_CONDITION]
+- **Create When:** Multiple projects have adopted the system
 - **Should Include:**
-  - [EXPECTED_CONTENT_1]
-  - [EXPECTED_CONTENT_2]
-  - [EXPECTED_CONTENT_3]
+  - Case studies from different project types
+  - Before/after documentation comparisons
+  - Lessons learned from implementations
+  - Common customization patterns
+
+#### CONTRIBUTING.md
+- **Purpose:** Guidelines for contributing to the SMDocs project itself
+- **Status:** Not yet created
+- **Create When:** Opening to external contributors
+- **Should Include:**
+  - How to improve templates
+  - How to submit template variations
+  - Code of conduct
+  - PR guidelines for documentation improvements
+
+#### CHANGELOG.md
+- **Purpose:** Track versions and improvements to the bootstrap system
+- **Status:** Not yet created
+- **Create When:** First major revision to templates
+- **Should Include:**
+  - Version numbers for template releases
+  - Template improvements and bug fixes
+  - Breaking changes to template structure
+  - Migration guides for existing users
 
 ---
 
@@ -129,17 +131,19 @@ These documents will be created as needed during development:
 This shows how documents relate to each other:
 
 ```
-README.md (Entry Point)
-    ├── claude.md (How to maintain docs)
-    │   └── document-index.md (This file)
+README.md (Bootstrap Usage Guide - Entry Point)
+    ├── Explains how to use templates ──┐
+    │                                   │
+    ├── claude.md (AI Instructions Template)
+    │   └── References document-index.md for doc tracking
     │
-    ├── [MAIN_CATEGORY_DOCS]
-    │   ├── [SUBCATEGORY_DOC_1]
-    │   └── [SUBCATEGORY_DOC_2]
-    │
-    └── Future Documents:
-        ├── [PLANNED_DOC_1]
-        └── [PLANNED_DOC_2]
+    └── document-index.md (Doc Registry Template - This File)
+        └── References claude.md for maintenance workflow
+
+Future Documents:
+    ├── EXAMPLES.md (Real-world case studies)
+    ├── CONTRIBUTING.md (How to improve templates)
+    └── CHANGELOG.md (Version history)
 ```
 
 ---
@@ -147,16 +151,17 @@ README.md (Entry Point)
 ## Document Status Tracking
 
 ### ✅ Complete & Up-to-Date
-- README.md
-- claude.md
-- document-index.md
-- [OTHER_COMPLETE_DOCS]
+- README.md (Bootstrap usage guide)
+- claude.md (AI instructions template)
+- document-index.md (Doc registry template)
 
 ### 🚧 In Progress
-- [DOCS_BEING_WORKED_ON]
+- (None currently)
 
 ### 📝 Planned
-- [PLANNED_DOCS]
+- EXAMPLES.md (Real-world case studies)
+- CONTRIBUTING.md (Contribution guidelines)
+- CHANGELOG.md (Version history)
 
 ---
 
@@ -177,46 +182,57 @@ When you create or modify documents, ensure:
 ## Document Freshness
 
 **Recently Updated (Last 7 Days):**
-- [RECENTLY_UPDATED_DOCS]
+- README.md (2025-11-15)
+- claude.md (2025-11-15)
+- document-index.md (2025-11-15)
 
 **Needs Review (>30 Days Old):**
-- [DOCS_OLDER_THAN_30_DAYS]
+- (None - all documents created today)
 
 **Stale (>90 Days Old):**
-- [DOCS_OLDER_THAN_90_DAYS]
+- (None - all documents created today)
 
 ---
 
 ## Quick Navigation
 
-**New to the project?**
-→ Start with [README.md](./README.md)
+**Want to bootstrap a new project?**
+→ Start with [README.md](./README.md) for complete instructions
 
-**Working as an AI agent?**
-→ Read [claude.md](./claude.md) for workflow instructions
+**Need the AI instructions template?**
+→ Copy [claude.md](./claude.md) to your project and customize
 
-**Looking for [SPECIFIC_TOPIC]?**
-→ [RELEVANT_DOCUMENT.md]([./RELEVANT_DOCUMENT.md])
+**Need the doc registry template?**
+→ Copy [document-index.md](./document-index.md) to your project and customize
 
-[Add more navigation shortcuts based on your project]
+**Working on SMDocs itself?**
+→ This file (document-index.md) tracks the bootstrap templates
+
+**Want to see a real example?**
+→ Check the domideas project referenced in README.md
 
 ---
 
 ## Document Statistics
 
-- **Total Documents:** [NUMBER] (current) + [NUMBER] (planned) = [TOTAL]
-- **Total Words:** ~[ESTIMATE] words across all current documents
-- **Documentation Coverage:** [PHASE_DESCRIPTION]
+- **Total Documents:** 3 (current) + 3 (planned) = 6 total
+- **Total Words:** ~4,500 words across all current documents
+- **Documentation Coverage:** Bootstrap templates complete and ready for use
+- **Template Files:** 2 customizable templates (claude.md, document-index.md)
+- **Guide Files:** 1 comprehensive usage guide (README.md)
 
 ---
 
 ## Version History
 
-**[YYYY-MM-DD]** - Initial creation
-- Added core documents
-- Established index structure and categories
-- Created cross-reference map
-- Defined maintenance checklist
+**2025-11-15** - Initial creation
+- Created bootstrap template system
+- Added README.md (usage guide)
+- Added claude.md (AI instructions template)
+- Added document-index.md (doc registry template)
+- Established SMDocs project structure
+- Customized document-index.md for the SMDocs project itself
+- Defined planned future documents (EXAMPLES, CONTRIBUTING, CHANGELOG)
 
 **[Future updates will be listed here]**
 
@@ -224,12 +240,23 @@ When you create or modify documents, ensure:
 
 ## Notes
 
+**About SMDocs (this project):**
+- SMDocs is the bootstrap template repository
+- Users copy templates FROM this repo TO their own projects
+- This document-index.md file itself is both a template AND the registry for SMDocs
+
+**Maintenance:**
 - This index should be updated **every time** a document is created, modified, or deleted
 - Timestamps use YYYY-MM-DD format for consistency
 - Keep descriptions concise but informative (2-3 sentences max)
 - When a planned document is created, move it from "Planned" to "Complete"
 - Review this index monthly to ensure all links work and descriptions are accurate
 
+**For Template Users:**
+- Copy claude.md and document-index.md to your project
+- Customize all [BRACKETED] placeholders
+- Follow the process described in README.md
+
 ---
 
-**This document is the source of truth for what documentation exists in this project.**
+**This document is the source of truth for what documentation exists in the SMDocs project.**
