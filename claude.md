@@ -4,468 +4,767 @@
 
 ---
 
-## Project Overview
+## 🎯 Mission Control
+
+### Project Overview
 
 **[PROJECT_NAME]** is [BRIEF_DESCRIPTION_OF_PROJECT].
 
 **Core Innovation:** [WHAT_MAKES_THIS_PROJECT_UNIQUE]
 
-**Current Status:** [PROJECT_PHASE - e.g., Requirements & Planning, Development, Production]
-**Next Phase:** [NEXT_MILESTONE]
+**Current Status:** [PROJECT_PHASE]
+**Next Milestone:** [NEXT_GOAL]
+
+### How to Use This Document
+
+This file is **Mission Control** for all AI agents working on this project. It contains:
+- The **Team Structure** (where different types of knowledge live)
+- **Mandatory Workflows** for keeping documentation in sync
+- **Conversational Intent Mapping** (how to route tasks to the right documentation)
+- **Governance Rules** and **Business Logic** that AI agents must follow
+- **Self-Evolution Protocol** (how this system improves itself)
 
 ---
 
-## Documentation System
+## 🏛️ The Knowledge Architecture
 
-This project uses a **self-maintaining documentation system** to ensure coherence across multiple AI sessions and human contributors.
+This project organizes documentation into **knowledge domains** - think of them as specialized teams, each with their own expertise and documentation.
 
-### Core Principle: Documents Must Stay in Sync
+### The Teams (Documentation Domains)
 
-When you modify one document, you MUST update related documents to maintain consistency. This is critical for long-running projects with multiple contributors and AI sessions.
+#### 📚 **The Library** - Documentation Central
+- **What:** Meta-documentation, knowledge management, this file
+- **Documents:**
+  - `claude.md` (this file) - AI agent instructions
+  - `document-index.md` - Central registry of all documents
+  - `README.md` - Project overview and quick start
+- **When to update:** Adding/modifying any documentation, changing workflows
+- **Responsible for:** Maintaining documentation consistency, cross-references, timestamps
+
+#### 🔬 **The AI Lab** - AI Agents & Automation
+- **What:** AI agent configurations, prompts, conversational intents, automation rules
+- **Documents:**
+  - `AI_AGENTS.md` - Registry of AI agents, their roles, and capabilities
+  - `INTENTS.md` - Conversational intent mapping and routing rules
+  - `PROMPTS.md` - Reusable prompt templates and patterns
+  - `AUTOMATION.md` - Automated workflows and triggers
+- **When to update:** Adding AI capabilities, changing how AI agents work, new automation
+- **Responsible for:** AI governance, prompt engineering, agent coordination
+
+#### 🏗️ **The Workshop** - Engineering & Architecture
+- **What:** Code architecture, technical decisions, development processes
+- **Documents:**
+  - `ARCHITECTURE.md` - System architecture and technical design
+  - `TECH_STACK.md` - Technologies, frameworks, and tools
+  - `API_REFERENCE.md` - API documentation
+  - `TESTING.md` - Testing strategy and QA processes
+- **When to update:** Architectural changes, new tech choices, API updates
+- **Responsible for:** Technical standards, code quality, architecture decisions
+
+#### 🎨 **The Studio** - Product & Design
+- **What:** Product requirements, UX/UI design, user workflows
+- **Documents:**
+  - `REQUIREMENTS.md` - Product requirements and specifications
+  - `DESIGN_SYSTEM.md` - Design patterns, UI components, brand guidelines
+  - `USER_WORKFLOWS.md` - User journeys and interaction patterns
+  - `BACKLOG.md` - Feature ideas and product roadmap
+- **When to update:** Product changes, design updates, new requirements
+- **Responsible for:** Product vision, user experience, feature prioritization
+
+#### 🛡️ **The Vault** - Security & Governance
+- **What:** Security policies, compliance rules, data governance, business rules
+- **Documents:**
+  - `SECURITY.md` - Security policies and vulnerability reporting
+  - `COMPLIANCE.md` - Regulatory compliance requirements
+  - `BUSINESS_RULES.md` - Critical business logic and policies
+  - `DATA_GOVERNANCE.md` - Data handling, privacy, retention policies
+- **When to update:** Security changes, compliance updates, new business rules
+- **Responsible for:** Risk management, policy enforcement, compliance
+
+#### ⚙️ **The Command Center** - Operations
+- **What:** Deployment, monitoring, incident response, infrastructure
+- **Documents:**
+  - `DEPLOYMENT.md` - Deployment procedures and infrastructure
+  - `RUNBOOK.md` - Operational procedures and troubleshooting
+  - `MONITORING.md` - Observability, metrics, alerts
+  - `INCIDENTS.md` - Incident response and post-mortems
+- **When to update:** Ops changes, new deployment processes, infrastructure updates
+- **Responsible for:** System reliability, performance, operational excellence
+
+#### 🤝 **The Council** - Stakeholders & Decisions
+- **What:** Business context, stakeholder decisions, organizational knowledge
+- **Documents:**
+  - `STAKEHOLDERS.md` - Key stakeholders, roles, communication channels
+  - `DECISIONS.md` - Architecture Decision Records (ADRs) and major choices
+  - `GLOSSARY.md` - Business terminology and domain language
+  - `CONTEXT.md` - Business background and organizational knowledge
+- **When to update:** Stakeholder changes, major decisions, new business context
+- **Responsible for:** Business alignment, decision tracking, institutional knowledge
+
+---
+
+## 🔄 Core Principle: The Self-Documenting Loop
+
+This system is designed to **evolve and improve itself**. Every interaction makes the documentation better.
+
+### The Loop
+
+```
+1. AI Agent receives task
+   ↓
+2. Reads claude.md (Mission Control)
+   ↓
+3. Routes to appropriate Team (domain)
+   ↓
+4. Reads team-specific documentation
+   ↓
+5. Executes task following rules
+   ↓
+6. Updates documentation (keeps knowledge fresh)
+   ↓
+7. Updates document-index.md (maintains registry)
+   ↓
+8. Commits changes atomically
+   ↓
+9. System is smarter for next interaction
+```
+
+### Why This Works
+
+- **Conversational Intent Mapping:** When user says "update the AI Lab", agent knows to update AI_AGENTS.md, INTENTS.md, etc.
+- **Domain Expertise:** Each team owns specific knowledge, preventing confusion
+- **Mandatory Synchronization:** Documents stay in sync through enforced workflows
+- **Continuous Improvement:** Every task adds to the knowledge base
+- **Multi-Session Continuity:** New AI sessions pick up exactly where previous ones left off
 
 ---
 
 ## 🚨 CRITICAL INSTRUCTIONS: Documentation Maintenance
 
-### When You Create a New Document
+### Mandatory Workflow: Creating a New Document
 
-**MANDATORY STEPS (Execute in this order):**
+**Execute these steps in order (no skipping!):**
 
-1. **Create the new document** with appropriate content
-2. **Update document-index.md** to include the new document:
-   - Add entry with filename, description, last updated date
-   - Add to appropriate category
+1. **Identify the Team** - Which domain does this document belong to?
+   - Use the Teams list above to categorize
+   - If unclear, it probably belongs in The Library
+
+2. **Create the document** with this structure:
+   ```markdown
+   # [Document Title]
+
+   **Team:** [Team Name]
+   **Last Updated:** [YYYY-MM-DD]
+   **Maintained By:** [Primary maintainer or "AI Agents"]
+
+   ---
+
+   ## Purpose
+   [What this document covers and why it exists]
+
+   ## Related Documentation
+   - [Related docs with brief descriptions]
+
+   ---
+
+   [Document content]
+   ```
+
+3. **Update document-index.md:**
+   - Add entry with filename, description, team, last updated date
    - Update document count
-3. **Update related documents** that should reference the new document:
-   - Add cross-reference links where relevant
-   - Update "Related Documentation" sections
-   - Ensure bidirectional linking (if A links to B, B should link to A when relevant)
-4. **Update this file (claude.md)** if the new document changes workflows or processes
-5. **Commit all changes together** in a single atomic commit
+   - Add to appropriate team category
 
-### When You Modify an Existing Document
+4. **Update the Team's parent document** (if one exists):
+   - Reference the new document
+   - Explain its relationship to other team docs
 
-**MANDATORY STEPS:**
+5. **Update this file (claude.md)** if the document:
+   - Changes workflows or processes
+   - Adds new AI agent capabilities
+   - Modifies governance rules
+
+6. **Create bidirectional links:**
+   - Add references in related documents
+   - Ensure links go both ways
+
+7. **Commit all changes atomically:**
+   ```bash
+   git add [new-doc].md document-index.md claude.md [related-docs].md
+   git commit -m "[Team] Add [document name] - [brief description]"
+   ```
+
+### Mandatory Workflow: Modifying an Existing Document
+
+**Execute these steps in order:**
 
 1. **Make your changes** to the document
-2. **Update document-index.md**:
-   - Update the "Last Updated" timestamp for that document
-   - Update the description if the purpose changed
-3. **Review related documents**:
+   - Update the "Last Updated" timestamp in the document header
+   - Note what changed in a changelog section if significant
+
+2. **Update document-index.md:**
+   - Update the timestamp for this document
+   - Update description if the purpose changed
+
+3. **Review related documents:**
    - Check if cross-references need updating
-   - Update any documents that quote or reference the modified content
-4. **Update this file (claude.md)** if the changes affect workflows or instructions
-5. **Commit all changes together**
+   - Update any docs that quote or reference the modified content
+   - Verify bidirectional links still make sense
 
-### When You Receive Instructions to Update claude.md
+4. **Update team coordination:**
+   - If changes affect other teams, update their documents
+   - Example: Changing API (Workshop) → update BUSINESS_RULES.md (Vault)
 
-**MANDATORY STEPS:**
+5. **Update claude.md** if changes affect:
+   - How AI agents should work
+   - Workflow processes
+   - Team responsibilities
 
-1. **Update claude.md** with the new instructions
-2. **Update document-index.md**:
-   - Update the "Last Updated" timestamp for claude.md
-   - Add any new document types to the registry
-3. **Review ALL documents** listed in document-index.md:
-   - Check if the new instructions affect existing documents
-   - Update documents that need to align with new instructions
-   - Add cross-references where needed
-4. **Verify consistency** across the entire documentation system
-5. **Commit all changes together**
+6. **Commit all changes atomically:**
+   ```bash
+   git add [modified-docs].md document-index.md [related-docs].md
+   git commit -m "[Team] Update [document name] - [what and why]"
+   ```
 
----
+### Mandatory Workflow: Routing Conversational Intents
 
-## Documentation Structure
+When you (AI agent) receive a task, **route it properly**:
 
-### Primary Documents (Standard Set)
+| User Says... | Maps To Team | Update These Docs |
+|-------------|--------------|-------------------|
+| "Update the AI Lab" | The AI Lab | AI_AGENTS.md, INTENTS.md, PROMPTS.md |
+| "Tell the Workshop" | The Workshop | ARCHITECTURE.md, TECH_STACK.md, API_REFERENCE.md |
+| "Notify the Studio" | The Studio | REQUIREMENTS.md, DESIGN_SYSTEM.md, BACKLOG.md |
+| "Check with the Vault" | The Vault | SECURITY.md, BUSINESS_RULES.md, COMPLIANCE.md |
+| "Update the Command Center" | The Command Center | DEPLOYMENT.md, RUNBOOK.md, MONITORING.md |
+| "Inform the Council" | The Council | STAKEHOLDERS.md, DECISIONS.md, CONTEXT.md |
+| "Add to the Library" | The Library | document-index.md, README.md, claude.md |
 
-1. **README.md** - Project overview, quick start, high-level features
-2. **document-index.md** - Central registry of all documents (THIS IS THE SOURCE OF TRUTH)
-3. **claude.md** - This file - instructions for AI agents working on the project
+**Examples:**
 
-### Common Additional Documents (Add as needed)
+```
+User: "Add a new authentication rule and update the AI Lab"
+→ Update SECURITY.md (Vault) + AI_AGENTS.md (AI Lab)
 
-- **REQUIREMENTS.md** - Product requirements, features, specifications
-- **ARCHITECTURE.md** or **PROJECT_STRUCTURE.md** - Technical architecture, file organization
-- **BACKLOG.md** - Future feature ideas, prioritization framework
-- **API_REFERENCE.md** - Detailed API documentation
-- **CONTRIBUTING.md** - Guidelines for contributors
-- **CHANGELOG.md** - Version history and release notes
-- **DEPLOYMENT.md** - Deployment instructions
-- **TESTING.md** - Testing strategy and test cases
-- **SECURITY.md** - Security considerations
+User: "We decided to use PostgreSQL - tell the Workshop and Council"
+→ Update TECH_STACK.md (Workshop) + DECISIONS.md (Council)
 
----
-
-## Document Cross-Reference Rules
-
-### Always Maintain Bidirectional Links
-
-If Document A references Document B, consider if Document B should reference Document A.
-
-**Example:**
-- `REQUIREMENTS.md` links to `ARCHITECTURE.md` ✓
-- `ARCHITECTURE.md` should link back to `REQUIREMENTS.md` ✓
-
-### Use Consistent Link Format
-
-```markdown
-See [DOCUMENT_NAME.md](./DOCUMENT_NAME.md) for details.
-
-For specific sections:
-See [Section Name in DOCUMENT_NAME.md](./DOCUMENT_NAME.md#section-anchor)
+User: "New design pattern, update the Studio"
+→ Update DESIGN_SYSTEM.md (Studio)
 ```
 
-### "Related Documentation" Sections
+---
 
-Every major document should have a "Related Documentation" section listing:
-- Parent documents (higher level)
-- Child documents (more detailed)
-- Sibling documents (same level, related topics)
+## 🎭 AI Agent Protocols
+
+### For Claude Code and Similar AI Agents
+
+#### Starting a New Session
+
+1. **Read in this order:**
+   - `claude.md` (this file) - Understand mission control
+   - `document-index.md` - See what documents exist
+   - Relevant team documents for your task
+
+2. **Confirm understanding:**
+   - State which team(s) you'll be working with
+   - List documents you plan to read/modify
+   - Propose your approach
+
+3. **Execute with discipline:**
+   - Follow mandatory workflows
+   - Update documentation as you work
+   - Maintain cross-references
+
+#### Communication Style
+
+- **Be direct and precise** - This is a professional environment
+- **Avoid excessive emojis** - Unless user requests them
+- **Focus on accuracy** - Over validation or cheerleading
+- **Propose solutions** - Don't just describe problems
+- **Think in teams** - Use the team language ("The Workshop needs this update")
+
+#### Handling Ambiguity
+
+| Situation | Action |
+|-----------|--------|
+| **Conflicting info between teams** | Point out conflict, propose resolution, ask for user decision |
+| **Missing documentation** | Create it following mandatory workflow, assign to appropriate team |
+| **Unclear intent** | Ask user to clarify using team language ("Is this for the Vault or the Workshop?") |
+| **Outdated timestamps** | Update them as you go |
+| **Broken cross-references** | Fix them immediately |
+
+### Context Sharing Between Sessions
+
+**User should provide:**
+- Current branch name
+- Current milestone/phase
+- Specific task or goal
+- Which team(s) are involved
+
+**You (AI agent) should:**
+- Read claude.md and document-index.md
+- Identify which teams are involved
+- Read team-specific documents
+- Confirm understanding before proceeding
+- Propose plan using team language
 
 ---
 
-## Git Workflow
+## 📋 Document Cross-Reference Rules
+
+### Bidirectional Linking (Mandatory)
+
+If Document A references Document B, Document B **MUST** reference Document A (when relevant).
+
+**Example:**
+```markdown
+# In ARCHITECTURE.md (Workshop)
+See [BUSINESS_RULES.md](./BUSINESS_RULES.md) for governance policies.
+
+# In BUSINESS_RULES.md (Vault)
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for technical implementation.
+```
+
+### Cross-Team References
+
+When teams interact, documents MUST cross-reference:
+
+```markdown
+# In REQUIREMENTS.md (Studio)
+## Related Documentation
+- **The Workshop:** See ARCHITECTURE.md for technical implementation
+- **The Vault:** See SECURITY.md for security requirements
+- **The Council:** See DECISIONS.md for stakeholder approvals
+```
+
+### Link Format (Standard)
+
+```markdown
+# Simple reference
+See [DOCUMENT_NAME.md](./DOCUMENT_NAME.md) for details.
+
+# Section reference
+See [Section Name](./DOCUMENT_NAME.md#section-anchor) for specifics.
+
+# Cross-team reference
+See [DOCUMENT_NAME.md](./DOCUMENT_NAME.md) in The [Team Name] for [what info].
+```
+
+---
+
+## 🔐 Governance & Business Rules
+
+### Critical Rules AI Agents Must Follow
+
+These rules are **non-negotiable**. AI agents MUST follow them:
+
+1. **Never skip documentation updates** - If you change code/config, update docs
+2. **Always commit atomically** - Related changes go together
+3. **Respect team boundaries** - Don't put Studio content in Workshop docs
+4. **Verify timestamps** - Always update "Last Updated" dates
+5. **Maintain bidirectional links** - Links must go both ways
+6. **Follow security policies** - Check The Vault before handling sensitive data
+7. **Respect business rules** - The Vault and Council override technical preferences
+
+### Policy Hierarchy
+
+When conflicts arise, this is the decision hierarchy:
+
+```
+1. Security & Compliance (The Vault) - HIGHEST PRIORITY
+   ↓
+2. Business Rules & Stakeholder Decisions (The Council)
+   ↓
+3. Product Requirements (The Studio)
+   ↓
+4. Technical Architecture (The Workshop)
+   ↓
+5. AI Agent Preferences (The AI Lab) - LOWEST PRIORITY
+```
+
+**Example:** If The Vault says "no customer data in logs" but The Workshop's logging architecture does it, **The Vault wins**. Update The Workshop.
+
+---
+
+## 🛠️ Git Workflow
 
 ### Branching Strategy
 
 **Current Branch:** [CURRENT_BRANCH_NAME]
 
-**Branch Naming Convention:**
-- `claude/[task-description]-[session-id]` - For AI-generated work
-- `feature/[feature-name]` - For human-developed features
-- `docs/[doc-update]` - For documentation updates
-- `bugfix/[issue-description]` - For bug fixes
-- `refactor/[what-is-refactored]` - For refactoring
+**Naming Conventions:**
+- `claude/[task]-[session-id]` - AI agent work
+- `feature/[name]` - New features
+- `docs/[team]/[update]` - Documentation updates (team-specific)
+- `fix/[issue]` - Bug fixes
+- `security/[update]` - Security patches
 
-### Commit Message Guidelines
+### Commit Message Format
 
-**Format:**
 ```
-[Category] Brief description
+[Team] Brief description
 
-Detailed explanation:
-- What changed
+Team(s) involved: [Team names]
+
+Changes:
+- What changed in each document
 - Why it changed
-- Impact on other documents/systems
+- Impact on other teams
 
-Related documents updated:
+Related docs updated:
 - document-index.md
-- [OTHER_DOCS]
+- [other files]
 ```
 
-**Categories:**
-- `[Docs]` - Documentation updates
-- `[Feature]` - New feature implementation
-- `[Fix]` - Bug fixes
-- `[Refactor]` - Code refactoring
-- `[Test]` - Test additions/updates
-- `[Meta]` - Project structure, build config, etc.
+**Commit Categories by Team:**
+- `[Library]` - Meta-documentation updates
+- `[AI Lab]` - AI agent, prompt, or automation changes
+- `[Workshop]` - Code, architecture, or technical updates
+- `[Studio]` - Product, design, or requirements changes
+- `[Vault]` - Security, compliance, or governance updates
+- `[Command Center]` - Operations, deployment, or infrastructure changes
+- `[Council]` - Stakeholder, decision, or business context updates
 
-### Atomic Commits for Documentation
+### Atomic Commits (Mandatory)
 
-When updating documentation, **always commit related changes together**:
+**Always commit related changes together:**
 
 ```bash
-# Good: All related doc updates in one commit
-git add document-index.md REQUIREMENTS.md claude.md
-git commit -m "[Docs] Update requirements and sync documentation"
+# GOOD - All related team updates in one commit
+git add document-index.md ARCHITECTURE.md SECURITY.md claude.md
+git commit -m "[Workshop + Vault] Add encryption layer
 
-# Bad: Separate commits that break consistency temporarily
-git add REQUIREMENTS.md
-git commit -m "[Docs] Update requirements"
-git add document-index.md
-git commit -m "[Docs] Update index"  # <- Index is out of sync between commits!
+Team(s) involved: The Workshop, The Vault
+
+Changes:
+- Added encryption architecture to ARCHITECTURE.md
+- Updated security policies in SECURITY.md
+- Added cross-references between teams
+- Updated document-index.md timestamps
+
+Related docs updated:
+- document-index.md
+- ARCHITECTURE.md
+- SECURITY.md
+- claude.md (team coordination notes)"
+
+# BAD - Separate commits break consistency
+git add ARCHITECTURE.md
+git commit -m "Add encryption"
+# ← document-index.md is now out of sync!
 ```
 
 ---
 
-## Development Workflow
+## 📊 Quality Standards
 
-### Current Phase: [CURRENT_PHASE_NAME]
+### Documentation Quality (All Teams)
 
-[DESCRIPTION_OF_CURRENT_DEVELOPMENT_PHASE]
+Every document MUST have:
+- **Team assignment** - Clear team ownership
+- **Last Updated timestamp** - In the document and document-index.md
+- **Purpose statement** - Why this document exists
+- **Related Documentation** - Cross-references to other teams
+- **Readable by AI and humans** - Clear, structured, scannable
 
-**Tech Stack:**
-- [FRAMEWORK/LANGUAGE]
-- [BUILD_TOOL]
-- [TESTING_FRAMEWORK]
-- [OTHER_TOOLS]
+### Team-Specific Standards
 
-### When Starting a New Phase
+#### The Library
+- Meta-documentation is always current
+- document-index.md is the source of truth
+- Cross-reference map is accurate
 
-1. **Review all documentation** to understand current state
-2. **Check document-index.md** for the latest version of each document
-3. **Read this file (claude.md)** for any updated instructions
-4. **Create a new branch** following naming convention
-5. **Update relevant documents** to mark phase as "in progress"
-6. **Update document-index.md** when you create new files
-7. **Commit regularly** with descriptive messages
+#### The AI Lab
+- AI agent roles are clearly defined
+- Conversational intents are unambiguous
+- Prompts are tested and versioned
 
----
+#### The Workshop
+- Architecture decisions are documented
+- Code references match documentation
+- APIs are fully documented
 
-## Code Organization Instructions
+#### The Studio
+- Requirements are testable
+- User workflows are complete
+- Design patterns are consistent
 
-### When Creating New Code Files
+#### The Vault
+- Security policies are enforced
+- Business rules are non-negotiable
+- Compliance requirements are tracked
 
-1. **Follow [ARCHITECTURE_DOCUMENT]** for file organization
-2. **Update [ARCHITECTURE_DOCUMENT]** if you deviate from the plan (with justification)
-3. **Add documentation comments** for public APIs
-4. **Update document-index.md** to include new code documentation files
+#### The Command Center
+- Runbooks are executable
+- Deployment procedures are tested
+- Monitoring is comprehensive
 
-### Directory Structure
-
-```
-[PROJECT_ROOT]/
-├── [MAIN_SOURCE_DIR]/
-│   ├── [SUBDIRECTORIES]
-│   └── [FILES]
-├── [TESTS_DIR]/
-├── [DOCS_DIR]/
-└── [CONFIG_FILES]
-```
-
----
-
-## AI-Specific Instructions
-
-### For Claude Code (or similar AI agents)
-
-When you're asked to work on this project:
-
-1. **Start by reading these files in order:**
-   - `claude.md` (this file) - Understand the workflow
-   - `document-index.md` - See what documents exist
-   - Relevant documents for your specific task
-
-2. **Before making changes:**
-   - Announce which documents you plan to modify
-   - Explain how they relate to each other
-   - Confirm the user agrees with the approach
-
-3. **After making changes:**
-   - List all documents you modified
-   - Confirm they're all in sync
-   - Update document-index.md timestamps
-   - Commit atomically
-
-4. **Communication style:**
-   - Be direct and concise (this is a CLI tool)
-   - Avoid excessive emojis unless user requests them
-   - Focus on technical accuracy over validation
-   - Propose solutions, don't just describe problems
-
-### Context Sharing Between Sessions
-
-When starting a new session:
-
-1. **User should provide context** by sharing:
-   - Current branch name
-   - Current phase or milestone
-   - Specific task or goal
-
-2. **You should respond** by:
-   - Reading claude.md (this file)
-   - Reading document-index.md
-   - Confirming your understanding of the current state
-   - Proposing a plan before executing
-
-### Handling Conflicts or Ambiguity
-
-If you notice:
-- **Conflicting information** between documents → Point it out, propose a fix
-- **Missing cross-references** → Add them
-- **Outdated timestamps** → Update them
-- **Unclear requirements** → Ask for clarification before proceeding
+#### The Council
+- Stakeholder decisions are recorded
+- Context is maintained
+- Terminology is consistent
 
 ---
 
-## Quality Standards
+## 🧪 Testing & Validation
 
-### Documentation Quality
+### Documentation Testing (Pre-Commit)
 
-Every document should:
-- Have a clear purpose stated at the top
-- Use consistent markdown formatting
-- Include a "Last Updated" timestamp (in document-index.md)
-- Cross-reference related documents
-- Be readable by both humans and AI agents
-
-### Code Quality
-
-Every code file should:
-- Follow the project's style guide
-- Include documentation comments for public APIs
-- Have corresponding tests (unit or integration)
-- Be referenced in architecture/structure documentation
-
-### Commit Quality
-
-Every commit should:
-- Have a descriptive message explaining WHY, not just WHAT
-- Include all related changes (atomic commits for related files)
-- Pass linting and tests (once set up)
-- Update documentation if behavior changes
-
----
-
-## Testing Strategy
-
-### Documentation Testing (Manual)
-
-Before committing documentation changes:
+Before committing, verify:
 
 1. **Link validity:**
-   - Check for broken internal links
-   - Verify linked files exist
+   ```bash
+   # Check all internal links work
+   grep -r "\[.*\](\.\/.*\.md)" *.md
+   ```
 
-2. **Consistency check:**
-   - All documents mentioned in document-index.md exist?
-   - All timestamps in document-index.md are accurate?
-   - All cross-references are bidirectional?
+2. **Timestamp accuracy:**
+   - Updated in both document header AND document-index.md
+   - Format is YYYY-MM-DD
 
-3. **Readability:**
-   - Can a new contributor understand the project from README.md?
-   - Are technical terms explained or linked?
-   - Is the information architecture logical?
+3. **Team assignment:**
+   - Every doc is assigned to a team
+   - Team categorization makes sense
 
-### Code Testing
+4. **Cross-reference completeness:**
+   - Bidirectional links are present
+   - Cross-team references are accurate
 
-[PROJECT_SPECIFIC_TESTING_STRATEGY]
-
----
-
-## Common Tasks Quick Reference
-
-### Adding a New Feature to Backlog
-
-1. Open `BACKLOG.md` (or create if doesn't exist)
-2. Add feature to appropriate category/priority
-3. Update feature count if tracked
-4. Update `document-index.md` timestamp for BACKLOG.md
-5. Commit: `[Docs] Add [feature name] to backlog`
-
-### Creating a New Planning Document
-
-1. Create the document with proper structure
-2. Add "Related Documentation" section
-3. Update `document-index.md` with new entry
-4. Update related documents to link to new document
-5. Update this file (`claude.md`) if it affects workflows
-6. Commit all changes together
-
-### Starting New Development Phase
-
-1. Read relevant documentation thoroughly
-2. Create branch following naming convention
-3. Set up project structure as documented
-4. Update `document-index.md` with any new docs
-5. Commit: `[Feature] Initialize [phase/component name]`
+5. **Business rule compliance:**
+   - Changes don't violate Vault policies
+   - Council decisions are respected
 
 ---
 
-## Troubleshooting
+## 🎯 Common Task Patterns
 
-### "Documents are out of sync"
+### Adding a New AI Agent
 
-**Solution:**
-1. Check git diff to see what changed
-2. Read document-index.md to find related documents
-3. Update all related documents to be consistent
-4. Update timestamps in document-index.md
-5. Commit all changes atomically
+1. **Update The AI Lab:**
+   - Add to `AI_AGENTS.md` with role, capabilities, constraints
+   - Define conversational intents in `INTENTS.md`
+   - Create prompt templates in `PROMPTS.md`
 
-### "Can't find information about X"
+2. **Update cross-team docs:**
+   - Add to `document-index.md`
+   - Reference in `claude.md` if affects workflows
 
-**Solution:**
-1. Check document-index.md for the most likely document
-2. Use grep to search across all docs: `grep -r "search term" *.md`
-3. If not found, ask user or check BACKLOG.md (might be a future feature)
+3. **Commit:**
+   ```bash
+   git commit -m "[AI Lab] Add [agent name] agent"
+   ```
 
-### "Conflicting requirements between documents"
+### Adding a Security Rule
 
-**Solution:**
-1. Point out the conflict to the user
-2. Ask for clarification on which is correct
-3. Update all documents to be consistent
-4. Update document-index.md timestamps
-5. Commit with explanation of the conflict resolution
+1. **Update The Vault:**
+   - Add rule to `SECURITY.md` or `BUSINESS_RULES.md`
+   - Mark as CRITICAL if non-negotiable
 
----
+2. **Notify affected teams:**
+   - Update Workshop docs if affects code
+   - Update AI Lab if affects agent behavior
+   - Update Command Center if affects deployment
 
-## Project-Specific Conventions
+3. **Commit atomically:**
+   ```bash
+   git commit -m "[Vault + Workshop] Add [rule name] security requirement"
+   ```
 
-### Naming Conventions
+### Recording a Major Decision
 
-**Files:**
-- Documents: `UPPERCASE_NAME.md` (e.g., REQUIREMENTS.md) OR `lowercase-name.md`
-- Code: [YOUR_CONVENTION - e.g., kebab-case.ts, camelCase.js, PascalCase.tsx]
-- Tests: [YOUR_CONVENTION - e.g., *.test.ts, *.spec.ts, *_test.py]
+1. **Update The Council:**
+   - Add ADR (Architecture Decision Record) to `DECISIONS.md`
+   - Update `CONTEXT.md` with business rationale
 
-**Variables/Functions:**
-- [YOUR_LANGUAGE]: [YOUR_CONVENTION - e.g., camelCase, snake_case]
-- Constants: [YOUR_CONVENTION - e.g., UPPER_SNAKE_CASE]
-- Types/Classes: [YOUR_CONVENTION - e.g., PascalCase]
+2. **Update affected teams:**
+   - Workshop: Technical implications
+   - Studio: Product impact
+   - Vault: Governance considerations
 
-### Terminology
-
-Use consistent terminology across all documents:
-
-- **[TERM_1]** - [DEFINITION] (not "[AVOID_TERM]")
-- **[TERM_2]** - [DEFINITION] (not "[AVOID_TERM]")
-- **[TERM_3]** - [DEFINITION] (not "[AVOID_TERM]")
-
-[Add project-specific terms that should be used consistently]
+3. **Commit:**
+   ```bash
+   git commit -m "[Council] Record decision: [decision name]"
+   ```
 
 ---
 
-## Success Criteria
+## 🔍 Troubleshooting
+
+### "Which team should I update?"
+
+Use this decision tree:
+
+```
+Is it about AI agents/prompts/automation?
+  → The AI Lab
+
+Is it about code/architecture/technical design?
+  → The Workshop
+
+Is it about product/design/user experience?
+  → The Studio
+
+Is it about security/compliance/business rules?
+  → The Vault
+
+Is it about deployment/operations/infrastructure?
+  → The Command Center
+
+Is it about stakeholders/decisions/business context?
+  → The Council
+
+Is it about documentation itself?
+  → The Library
+```
+
+### "Documents are conflicting"
+
+**Resolution process:**
+1. Identify which teams are involved
+2. Check policy hierarchy (Vault > Council > Studio > Workshop > AI Lab)
+3. Higher priority team wins
+4. Update lower priority team's docs
+5. Add cross-reference explaining the relationship
+6. Commit atomically
+
+### "Can't find the right document"
+
+1. Check `document-index.md` first
+2. Use team categories to narrow search
+3. Grep across team docs:
+   ```bash
+   grep -r "search term" *.md
+   ```
+4. If truly missing, create it following mandatory workflow
+
+---
+
+## 📖 Project-Specific Conventions
+
+### File Naming
+
+**By Team:**
+- Library: `README.md`, `claude.md`, `document-index.md`
+- AI Lab: `AI_AGENTS.md`, `INTENTS.md`, `PROMPTS.md`, `AUTOMATION.md`
+- Workshop: `ARCHITECTURE.md`, `TECH_STACK.md`, `API_REFERENCE.md`, `TESTING.md`
+- Studio: `REQUIREMENTS.md`, `DESIGN_SYSTEM.md`, `USER_WORKFLOWS.md`, `BACKLOG.md`
+- Vault: `SECURITY.md`, `COMPLIANCE.md`, `BUSINESS_RULES.md`, `DATA_GOVERNANCE.md`
+- Command Center: `DEPLOYMENT.md`, `RUNBOOK.md`, `MONITORING.md`, `INCIDENTS.md`
+- Council: `STAKEHOLDERS.md`, `DECISIONS.md`, `GLOSSARY.md`, `CONTEXT.md`
+
+**Placeholders:**
+- `[BRACKETS]` for user-customizable content
+- `[TEAM_NAME]` for team-specific information
+- Include inline comments for guidance
+
+### Terminology (Standard Across All Teams)
+
+- **Team** - A documentation domain with specific responsibilities
+- **The Library** - Meta-documentation and knowledge management
+- **The AI Lab** - AI agents, prompts, automation
+- **The Workshop** - Engineering and architecture
+- **The Studio** - Product and design
+- **The Vault** - Security, compliance, governance
+- **The Command Center** - Operations and infrastructure
+- **The Council** - Stakeholders and decisions
+- **Mandatory Workflow** - Required steps that cannot be skipped
+- **Atomic Commit** - All related changes committed together
+- **Bidirectional Link** - Cross-reference that goes both ways
+- **Policy Hierarchy** - Priority order when teams conflict
+- **Conversational Intent** - Mapping user requests to teams/actions
+- **Self-Documenting Loop** - System that improves itself
+
+---
+
+## ✅ Success Criteria
+
+### System-Level Success
 
 You're doing well if:
 
-✅ All documents listed in document-index.md actually exist
-✅ All timestamps in document-index.md are accurate
-✅ Cross-references are bidirectional and working
-✅ No conflicting information between documents
-✅ New contributors can onboard using just the documentation
-✅ AI agents can resume work from a new session seamlessly
-✅ Commits are atomic and include all related doc updates
-✅ The documentation tells a coherent story about the project
+✅ All documents have team assignments
+✅ document-index.md is comprehensive and current
+✅ Cross-references are bidirectional
+✅ Timestamps are accurate
+✅ AI agents can route requests correctly
+✅ Teams don't have overlapping responsibilities
+✅ Business rules are clear and enforced
+✅ New team members (human or AI) can onboard quickly
+✅ Documentation evolves with every interaction
 
-You need to improve if:
+### Team-Level Success
 
-❌ Documents contradict each other
-❌ Links are broken or outdated
-❌ document-index.md is missing documents
-❌ Timestamps are wrong or missing
-❌ Changes aren't committed atomically
-❌ New documents aren't cross-referenced
-❌ Code doesn't match architecture/structure documentation
+Each team is successful when:
+- **The Library:** All meta-docs are current, index is accurate
+- **The AI Lab:** Agents work correctly, intents route properly
+- **The Workshop:** Code matches documentation, architecture is clear
+- **The Studio:** Requirements are complete, designs are documented
+- **The Vault:** Policies are enforced, rules are clear
+- **The Command Center:** Systems run smoothly, procedures work
+- **The Council:** Decisions are tracked, stakeholders are aligned
 
 ---
 
-## Version History of This File
+## 🔄 Self-Evolution Protocol
+
+This documentation system improves itself. Here's how:
+
+### Continuous Improvement
+
+1. **Every task teaches the system:**
+   - New patterns → Add to relevant team docs
+   - Edge cases → Update workflows
+   - Confusion → Clarify terminology
+
+2. **AI agents suggest improvements:**
+   - "This workflow could be clearer..."
+   - "The AI Lab needs a document for..."
+   - "Cross-team coordination could improve if..."
+
+3. **Regular reviews:**
+   - Monthly: Review document timestamps, update stale docs
+   - Quarterly: Review team boundaries, adjust if needed
+   - Yearly: Major restructuring if project has evolved
+
+### Evolution Guidelines
+
+When evolving this system:
+1. Propose changes before implementing
+2. Update claude.md first (the blueprint)
+3. Update affected team documents
+4. Update document-index.md
+5. Announce changes to all teams
+6. Commit atomically with clear changelog
+
+---
+
+## 📚 Version History
 
 **[YYYY-MM-DD]** - Initial creation
-- Established documentation maintenance workflow
-- Defined mandatory steps for document updates
-- Created cross-reference rules
-- Added project-specific conventions
+- Established team-based architecture
+- Created mandatory workflows
+- Defined conversational intent mapping
+- Set up self-evolution protocol
 
 **[Future updates will be listed here]**
 
 ---
 
-## Questions or Improvements?
+## 🎓 For New AI Agents
 
-If you (as an AI agent) notice:
-- Missing instructions that would be helpful
-- Ambiguous guidelines
-- Conflicts in this file
-- Better ways to structure the documentation
+If you're a new AI agent joining this project:
 
-→ Point it out to the user and suggest improvements
-→ This file should evolve as the project grows
+1. **Read this entire file** - It's your operating manual
+2. **Study document-index.md** - Know what docs exist
+3. **Learn the teams** - Understand each team's domain
+4. **Practice routing** - Map user requests to teams
+5. **Follow workflows** - They exist for good reasons
+6. **Ask questions** - Point out ambiguities
+7. **Suggest improvements** - Help this system evolve
+
+**Remember:** You're not just executing tasks - you're making this project smarter.
 
 ---
 
-**Remember: Documentation is code. Keep it consistent, tested, and up-to-date.**
+**Welcome to [PROJECT_NAME]. Let's build something remarkable together.**

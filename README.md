@@ -27,6 +27,42 @@ This self-documenting system solves common problems in projects that use AI agen
 - **Missing Cross-References** - Bidirectional linking ensures no orphaned documents
 - **Outdated Information** - Timestamp tracking highlights stale docs
 - **Onboarding Friction** - New contributors (human or AI) can navigate easily
+- **Conversational Intent Mapping** - Natural language like "update the AI Lab" maps to specific docs
+- **Business Rule Enforcement** - Critical policies and governance are documented and enforced
+- **Self-Evolution** - System improves itself with every interaction
+
+## The Team-Based Architecture
+
+SMDocs organizes documentation into **7 knowledge domains** called "Teams":
+
+### 📚 **The Library** - Documentation Central
+Meta-documentation, this file, and the document index.
+
+### 🔬 **The AI Lab** - AI Agents & Automation
+AI agent configurations, prompts, conversational intents, automation rules.
+
+### 🏗️ **The Workshop** - Engineering & Architecture
+Code architecture, tech stack, APIs, testing strategy.
+
+### 🎨 **The Studio** - Product & Design
+Requirements, design system, user workflows, feature backlog.
+
+### 🛡️ **The Vault** - Security & Governance
+Security policies, compliance, business rules, data governance.
+
+### ⚙️ **The Command Center** - Operations
+Deployment, monitoring, runbooks, incident response.
+
+### 🤝 **The Council** - Stakeholders & Decisions
+Business context, stakeholder directory, decisions, glossary.
+
+### Why Teams Matter
+
+When you say "update the AI Lab" or "check with the Vault", AI agents know exactly which documents to read and modify. This enables:
+- **Clear routing** of conversational intents
+- **Domain expertise** - each team owns specific knowledge
+- **Policy hierarchy** - The Vault > Council > Studio > Workshop > AI Lab
+- **Cross-team coordination** - teams reference each other through documented relationships
 
 ## How to Bootstrap a New Project
 
@@ -78,6 +114,37 @@ Start with the minimum viable documentation:
 git add claude.md document-index.md README.md
 git commit -m "[Docs] Initialize self-documenting system"
 ```
+
+## Quick Start: AI Agent Instructions
+
+When working with AI agents like Claude Code, you can bootstrap using simple instructions:
+
+### Simple One-Liner
+```
+Bootstrap this project with the self-documenting system from
+https://github.com/kbidne/SMDocs - copy claude.md and document-index.md
+templates and customize them for this project.
+```
+
+### Detailed Instructions
+```
+Set up SMDocs for this project:
+1. Fetch templates from https://github.com/kbidne/SMDocs
+2. Copy claude.md and document-index.md to project root
+3. Customize all [BRACKETED] placeholders
+4. Update README to reference the documentation system
+5. Commit everything together
+```
+
+### Direct File URLs
+For faster access, reference the raw files:
+```
+Fetch and customize these templates:
+- https://raw.githubusercontent.com/kbidne/SMDocs/main/claude.md
+- https://raw.githubusercontent.com/kbidne/SMDocs/main/document-index.md
+```
+
+The AI will fetch the templates, customize them for your project, and set up the self-documenting system automatically.
 
 ## Core Principles
 
