@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Onboarding Tutorial: From Zero to Full-Stack</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-color: #1f2937;
+            --light-bg: #f3f4f6;
+            --border-color: #e5e7eb;
+            --code-bg: #1f2937;
+            --success-color: #059669;
+            --warning-color: #d97706;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: white;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--secondary-color);
+            border-bottom: 4px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: var(--secondary-color);
+            margin-top: 30px;
+        }
+
+        h4 {
+            font-size: 1.1em;
+            color: var(--text-color);
+            margin-top: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #6b7280;
+            margin-bottom: 40px;
+        }
+
+        code {
+            background: var(--light-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: var(--code-bg);
+            color: #e5e7eb;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: var(--light-bg);
+            font-weight: 600;
+        }
+
+        .tip {
+            background: #ecfdf5;
+            border-left: 4px solid var(--success-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .tip strong {
+            color: var(--success-color);
+        }
+
+        .note {
+            background: #fef3c7;
+            border-left: 4px solid var(--warning-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .note strong {
+            color: var(--warning-color);
+        }
+
+        .spoiler {
+            background: var(--light-bg);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-weight: 600;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .toc {
+            background: var(--light-bg);
+            padding: 25px 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .toc ol {
+            margin: 0;
+        }
+
+        .project-structure {
+            background: var(--code-bg);
+            color: #e5e7eb;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 40px 0;
+        }
+
+        .prompt-box {
+            background: #f0f9ff;
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .prompt-box h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        @media print {
+            body {
+                padding: 20px;
+            }
+
+            h2 {
+                page-break-before: auto;
+            }
+
+            pre, .prompt-box {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Developer Onboarding Tutorial: From Zero to Full-Stack</h1>
+    <p class="subtitle"><strong>A Complete Guide to Setting Up Your MacBook Air for Modern Development</strong></p>
+
+    <hr>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#part-1">Part 1: Setting Up Your Development Environment</a></li>
+            <li><a href="#part-2">Part 2: GitHub Account & Desktop Setup</a></li>
+            <li><a href="#part-3">Part 3: Installing & Configuring VS Code</a></li>
+            <li><a href="#part-4">Part 4: GitHub Copilot Setup (Claude & OpenAI)</a></li>
+            <li><a href="#part-5">Part 5: Your First Repository & Commit</a></li>
+            <li><a href="#part-6">Part 6: The Baseball Card Collection Project</a></li>
+            <li><a href="#part-7">Part 7: Vibe Coding Prompts</a></li>
+            <li><a href="#part-8">Part 8: Future Enhancements</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+        </ol>
+    </div>
+
+    <hr>
+
+    <h2 id="overview">Overview</h2>
+
+    <h3>What You'll Learn</h3>
+    <p>By the end of this tutorial, you will:</p>
+    <ul>
+        <li>Have a fully configured MacBook Air development environment</li>
+        <li>Understand how to use VS Code as your IDE</li>
+        <li>Know how to create and manage GitHub repositories</li>
+        <li>Be able to commit and push code from VS Code</li>
+        <li>Use AI coding assistants (GitHub Copilot with Claude Sonnet 4.5 and OpenAI)</li>
+        <li>Build a functional baseball card collection website</li>
+    </ul>
+
+    <h3>What You'll Build</h3>
+    <p>A <strong>Baseball Card Collection Manager</strong> - a web application that:</p>
+    <ul>
+        <li>Displays your card collection in a searchable/sortable grid</li>
+        <li>Shows original 2009 Beckett values</li>
+        <li>Fetches current market prices</li>
+        <li>Calculates and displays percentage change in value</li>
+    </ul>
+
+    <h3>Time Estimate</h3>
+    <ul>
+        <li>Environment Setup: ~1-2 hours</li>
+        <li>Project Build: ~3-4 hours (with AI assistance)</li>
+        <li>Total: ~5-6 hours</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="part-1">Part 1: Setting Up Your Development Environment</h2>
+
+    <h3>Step 1.1: Install Homebrew (Mac Package Manager)</h3>
+    <p>Homebrew makes installing software on your Mac much easier.</p>
+
+    <ol>
+        <li>Open <strong>Terminal</strong> (press <code>Cmd + Space</code>, type "Terminal", press Enter)</li>
+        <li>Copy and paste this command, then press Enter:</li>
+    </ol>
+
+    <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+
+    <ol start="3">
+        <li>Follow the prompts (you'll need to enter your Mac password)</li>
+        <li><strong>Important</strong>: After installation completes, Terminal will show you commands to add Homebrew to your PATH. Copy and run those commands. They'll look something like:</li>
+    </ol>
+
+    <pre><code>echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"</code></pre>
+
+    <ol start="5">
+        <li>Verify installation:</li>
+    </ol>
+
+    <pre><code>brew --version</code></pre>
+
+    <p>You should see something like <code>Homebrew 4.x.x</code></p>
+
+    <h3>Step 1.2: Install Node.js</h3>
+    <p>Node.js is required for modern web development.</p>
+
+    <pre><code>brew install node</code></pre>
+
+    <p>Verify installation:</p>
+
+    <pre><code>node --version
+npm --version</code></pre>
+
+    <h3>Step 1.3: Install Git</h3>
+    <p>Git is for version control (tracking changes to your code).</p>
+
+    <pre><code>brew install git</code></pre>
+
+    <p>Verify installation:</p>
+
+    <pre><code>git --version</code></pre>
+
+    <h3>Step 1.4: Configure Git with Your Information</h3>
+
+    <pre><code>git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"</code></pre>
+
+    <hr>
+
+    <h2 id="part-2">Part 2: GitHub Account & Desktop Setup</h2>
+
+    <h3>Step 2.1: Create a GitHub Account</h3>
+    <ol>
+        <li>Go to <a href="https://github.com">https://github.com</a></li>
+        <li>Click <strong>"Sign up"</strong></li>
+        <li>Enter your email address</li>
+        <li>Create a password</li>
+        <li>Choose a username (this will be public, so choose wisely!)</li>
+        <li>Solve the puzzle to verify you're human</li>
+        <li>Click <strong>"Create account"</strong></li>
+        <li>Check your email and enter the verification code</li>
+        <li>Answer the personalization questions (or skip them)</li>
+    </ol>
+
+    <div class="tip">
+        <strong>Tip:</strong> Choose a professional username - this will be visible on all your projects.
+    </div>
+
+    <h3>Step 2.2: Install GitHub Desktop</h3>
+    <p>GitHub Desktop provides a visual interface for Git (easier than command line for beginners).</p>
+
+    <ol>
+        <li>Go to <a href="https://desktop.github.com">https://desktop.github.com</a></li>
+        <li>Click <strong>"Download for macOS"</strong></li>
+        <li>Open the downloaded file</li>
+        <li>Drag GitHub Desktop to your Applications folder</li>
+        <li>Open GitHub Desktop from Applications</li>
+        <li>Click <strong>"Sign in to GitHub.com"</strong></li>
+        <li>Your browser will open - sign in with your GitHub credentials</li>
+        <li>Click <strong>"Authorize desktop"</strong></li>
+        <li>Return to GitHub Desktop and complete setup</li>
+    </ol>
+
+    <h3>Step 2.3: Configure GitHub Desktop</h3>
+    <ol>
+        <li>In GitHub Desktop, go to <strong>Preferences</strong> (Cmd + ,)</li>
+        <li>Under <strong>Git</strong>, verify your name and email are correct</li>
+        <li>Under <strong>Integrations</strong>, set External Editor to "Visual Studio Code" (we'll install this next)</li>
+    </ol>
+
+    <hr>
+
+    <h2 id="part-3">Part 3: Installing & Configuring VS Code</h2>
+
+    <h3>Step 3.1: Download and Install VS Code</h3>
+    <ol>
+        <li>Go to <a href="https://code.visualstudio.com">https://code.visualstudio.com</a></li>
+        <li>Click <strong>"Download for Mac"</strong></li>
+        <li>Open the downloaded <code>.zip</code> file</li>
+        <li>Drag <strong>Visual Studio Code</strong> to your Applications folder</li>
+        <li>Open VS Code from Applications</li>
+        <li>If prompted about opening an app from the internet, click <strong>"Open"</strong></li>
+    </ol>
+
+    <h3>Step 3.2: Add VS Code to Terminal PATH</h3>
+    <p>This lets you open VS Code from Terminal by typing <code>code</code>.</p>
+
+    <ol>
+        <li>Open VS Code</li>
+        <li>Press <code>Cmd + Shift + P</code> (opens Command Palette)</li>
+        <li>Type: <code>Shell Command: Install 'code' command in PATH</code></li>
+        <li>Press Enter</li>
+        <li>Enter your Mac password if prompted</li>
+    </ol>
+
+    <p>Verify it works:</p>
+
+    <pre><code>code --version</code></pre>
+
+    <h3>Step 3.3: Install Essential VS Code Extensions</h3>
+    <p>Open VS Code and install these extensions:</p>
+
+    <ol>
+        <li>Click the <strong>Extensions icon</strong> in the left sidebar (looks like 4 squares)</li>
+        <li>Search for and install each of these:</li>
+    </ol>
+
+    <p><strong>Required Extensions:</strong></p>
+    <ul>
+        <li><strong>GitHub Copilot</strong> - AI coding assistant</li>
+        <li><strong>GitHub Copilot Chat</strong> - Chat interface for Copilot</li>
+        <li><strong>Live Server</strong> - Launch local dev server with live reload</li>
+        <li><strong>Prettier - Code Formatter</strong> - Auto-format your code</li>
+        <li><strong>ESLint</strong> - JavaScript linting</li>
+        <li><strong>SQLite Viewer</strong> - View SQLite databases in VS Code</li>
+    </ul>
+
+    <p><strong>Optional but Helpful:</strong></p>
+    <ul>
+        <li><strong>Material Icon Theme</strong> - Better file icons</li>
+        <li><strong>Auto Rename Tag</strong> - Rename paired HTML tags</li>
+        <li><strong>GitLens</strong> - Enhanced Git visualization</li>
+    </ul>
+
+    <h3>Step 3.4: Configure VS Code Settings</h3>
+    <ol>
+        <li>Press <code>Cmd + ,</code> to open Settings</li>
+        <li>Search for and configure these settings:</li>
+    </ol>
+
+    <ul>
+        <li><strong>Editor: Format On Save</strong> - Check this box</li>
+        <li><strong>Editor: Default Formatter</strong> - Set to "Prettier - Code formatter"</li>
+        <li><strong>Editor: Tab Size</strong> - Set to 2</li>
+        <li><strong>Files: Auto Save</strong> - Set to "afterDelay"</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="part-4">Part 4: GitHub Copilot Setup (Claude & OpenAI)</h2>
+    <p>This is where the magic happens! GitHub Copilot is an AI assistant that helps you write code.</p>
+
+    <h3>Step 4.1: Get GitHub Copilot Subscription</h3>
+    <ol>
+        <li>Go to <a href="https://github.com/settings/copilot">https://github.com/settings/copilot</a></li>
+        <li>Click <strong>"Enable GitHub Copilot"</strong></li>
+        <li>Choose your plan:
+            <ul>
+                <li><strong>Free trial</strong> - 30 days free</li>
+                <li><strong>Individual</strong> - $10/month or $100/year</li>
+                <li><strong>Pro</strong> - $39/month (includes Copilot Chat with multiple models)</li>
+            </ul>
+        </li>
+        <li>Enter payment information</li>
+        <li>Complete setup</li>
+    </ol>
+
+    <div class="note">
+        <strong>Note:</strong> For access to Claude Sonnet 4.5, you'll need <strong>GitHub Copilot Pro</strong> or <strong>GitHub Copilot Enterprise</strong>.
+    </div>
+
+    <h3>Step 4.2: Activate Copilot in VS Code</h3>
+    <ol>
+        <li>Open VS Code</li>
+        <li>Click the <strong>Accounts icon</strong> (person icon in bottom-left)</li>
+        <li>Click <strong>"Sign in to use GitHub Copilot"</strong></li>
+        <li>Sign in with your GitHub account</li>
+        <li>Authorize VS Code to access Copilot</li>
+    </ol>
+
+    <p>You should see a small Copilot icon in the bottom-right of VS Code.</p>
+
+    <h3>Step 4.3: Configure Copilot to Use Claude Sonnet 4.5</h3>
+    <p>GitHub Copilot Pro gives you access to multiple AI models. Here's how to switch between them:</p>
+
+    <ol>
+        <li>Click the <strong>Copilot icon</strong> in the bottom status bar of VS Code</li>
+        <li>Click <strong>"Configure GitHub Copilot"</strong></li>
+        <li>In the Copilot Chat panel, you can select different models</li>
+    </ol>
+
+    <p><strong>To use Claude Sonnet 4.5:</strong></p>
+    <ol>
+        <li>Open Copilot Chat (click the chat icon in the sidebar)</li>
+        <li>At the bottom of the chat panel, click the model selector</li>
+        <li>Choose <strong>"Claude 3.5 Sonnet"</strong> (or the latest Claude model available)</li>
+    </ol>
+
+    <p><strong>To use OpenAI GPT-4:</strong></p>
+    <ol>
+        <li>Click the model selector</li>
+        <li>Choose <strong>"GPT-4"</strong> or <strong>"GPT-4 Turbo"</strong></li>
+    </ol>
+
+    <h3>Step 4.4: Test Both AI Models</h3>
+    <p>Let's test both models to see the difference:</p>
+
+    <p><strong>Test 1: Claude Sonnet</strong></p>
+    <ol>
+        <li>Select Claude in the model picker</li>
+        <li>In Copilot Chat, type:</li>
+    </ol>
+
+    <pre><code>Create a simple JavaScript function that calculates the percentage change between two numbers</code></pre>
+
+    <p><strong>Test 2: OpenAI GPT-4</strong></p>
+    <ol>
+        <li>Switch to GPT-4 in the model picker</li>
+        <li>Ask the same question</li>
+    </ol>
+
+    <p><strong>Notice the differences!</strong> Both will give you working code, but you'll likely notice:</p>
+    <ul>
+        <li>Claude tends to be more thorough in explanations</li>
+        <li>Claude often provides cleaner, more maintainable code</li>
+        <li>Claude better understands context and nuance</li>
+    </ul>
+
+    <div class="spoiler">Spoiler: Claude wins for most coding tasks!</div>
+
+    <hr>
+
+    <h2 id="part-5">Part 5: Your First Repository & Commit</h2>
+
+    <h3>Step 5.1: Create a New Repository</h3>
+
+    <p><strong>Option A: From GitHub.com</strong></p>
+    <ol>
+        <li>Go to <a href="https://github.com">https://github.com</a></li>
+        <li>Click the <strong>+</strong> icon in the top-right</li>
+        <li>Select <strong>"New repository"</strong></li>
+        <li>Repository name: <code>baseball-card-collection</code></li>
+        <li>Description: <code>A web app to manage and track baseball card values</code></li>
+        <li>Select <strong>"Public"</strong> or <strong>"Private"</strong></li>
+        <li>Check <strong>"Add a README file"</strong></li>
+        <li>Click <strong>"Create repository"</strong></li>
+    </ol>
+
+    <p><strong>Option B: From GitHub Desktop</strong></p>
+    <ol>
+        <li>Open GitHub Desktop</li>
+        <li>Go to <strong>File > New Repository</strong></li>
+        <li>Name: <code>baseball-card-collection</code></li>
+        <li>Description: <code>A web app to manage and track baseball card values</code></li>
+        <li>Choose a local path (e.g., <code>/Users/yourname/Projects</code>)</li>
+        <li>Check <strong>"Initialize with a README"</strong></li>
+        <li>Click <strong>"Create Repository"</strong></li>
+        <li>Click <strong>"Publish repository"</strong> to push to GitHub</li>
+    </ol>
+
+    <h3>Step 5.2: Clone the Repository to Your Computer</h3>
+    <p>If you created the repo on GitHub.com:</p>
+
+    <ol>
+        <li>Open GitHub Desktop</li>
+        <li>Go to <strong>File > Clone Repository</strong></li>
+        <li>Find <code>baseball-card-collection</code> in the list</li>
+        <li>Choose where to save it locally</li>
+        <li>Click <strong>"Clone"</strong></li>
+    </ol>
+
+    <h3>Step 5.3: Open the Project in VS Code</h3>
+    <p>From GitHub Desktop:</p>
+    <ol>
+        <li>Click <strong>"Open in Visual Studio Code"</strong> button</li>
+    </ol>
+
+    <p>Or from Terminal:</p>
+    <pre><code>cd ~/Projects/baseball-card-collection  # adjust path as needed
+code .</code></pre>
+
+    <h3>Step 5.4: Make Your First Commit</h3>
+    <ol>
+        <li>In VS Code, open <code>README.md</code></li>
+        <li>Add some content:</li>
+    </ol>
+
+    <pre><code># Baseball Card Collection Manager
+
+A web application to track and manage baseball card values.
+
+## Features (Coming Soon)
+- View all cards in a sortable grid
+- Search by player, team, or year
+- Track current market values
+- Compare with historical prices</code></pre>
+
+    <ol start="3">
+        <li>Save the file (Cmd + S)</li>
+    </ol>
+
+    <p><strong>Commit from VS Code:</strong></p>
+    <ol>
+        <li>Click the <strong>Source Control icon</strong> in the left sidebar (branch icon)</li>
+        <li>You'll see <code>README.md</code> listed under "Changes"</li>
+        <li>Click the <strong>+</strong> next to the file to stage it</li>
+        <li>Type a commit message: <code>Update README with project description</code></li>
+        <li>Click the <strong>checkmark</strong> (Commit button)</li>
+        <li>Click <strong>"Sync Changes"</strong> to push to GitHub</li>
+    </ol>
+
+    <p><strong>Congratulations!</strong> You've made your first commit!</p>
+
+    <hr>
+
+    <h2 id="part-6">Part 6: The Baseball Card Collection Project</h2>
+
+    <h3>Project Architecture</h3>
+    <p>For this beginner project, we'll use a simple but effective tech stack:</p>
+
+    <div class="project-structure">
+baseball-card-collection/
+├── index.html          # Main page
+├── styles/
+│   └── main.css        # Styling
+├── scripts/
+│   ├── app.js          # Main application logic
+│   ├── data.js         # Card data (converted from CSV)
+│   └── api.js          # Price lookup functions
+├── data/
+│   └── cards.json      # Your card collection data
+└── README.md
+    </div>
+
+    <h3>Technology Choices</h3>
+
+    <p><strong>Frontend:</strong></p>
+    <ul>
+        <li>HTML5, CSS3, JavaScript (vanilla)</li>
+        <li>No framework needed for this beginner project</li>
+        <li>Easy to understand and debug</li>
+    </ul>
+
+    <p><strong>Data Storage:</strong></p>
+    <ul>
+        <li>JSON file (converted from your CSV)</li>
+        <li>Could upgrade to SQLite later</li>
+    </ul>
+
+    <p><strong>Styling:</strong></p>
+    <ul>
+        <li>CSS Grid for the card layout</li>
+        <li>CSS Variables for easy theming</li>
+    </ul>
+
+    <h3>Price API Options</h3>
+    <p>Unfortunately, Beckett doesn't have a public API. Here are alternatives:</p>
+
+    <ol>
+        <li><strong>eBay API</strong> (Recommended for real prices)
+            <ul>
+                <li>Free to use</li>
+                <li>Shows actual market prices</li>
+                <li>Requires developer registration</li>
+            </ul>
+        </li>
+        <li><strong>Manual Research Mode</strong>
+            <ul>
+                <li>Start with static prices</li>
+                <li>Add current prices manually</li>
+                <li>Good for learning, limited for real use</li>
+            </ul>
+        </li>
+        <li><strong>Sports Card Pro</strong> (sportscardpro.com)
+            <ul>
+                <li>Has price guides</li>
+                <li>No public API, would need scraping</li>
+            </ul>
+        </li>
+    </ol>
+
+    <p>For this tutorial, we'll start with <strong>manual price entry</strong> and include code structure for an API integration you can add later.</p>
+
+    <h3>Step 6.1: Convert Your CSV to JSON</h3>
+    <p>Your CSV file "grants baseball cards" has these columns:</p>
+    <ul>
+        <li>Card number</li>
+        <li>Player Last name</li>
+        <li>Player first name</li>
+        <li>Year</li>
+        <li>Team</li>
+        <li>Becketts value as of 2/19/2009</li>
+    </ul>
+
+    <p>We'll need to convert this to JSON format. Here's the structure:</p>
+
+    <pre><code>{
+  "cards": [
+    {
+      "id": 1,
+      "cardNumber": "123",
+      "firstName": "Ken",
+      "lastName": "Griffey Jr",
+      "year": 1989,
+      "team": "Seattle Mariners",
+      "value2009": 45.00,
+      "currentValue": null
+    }
+  ]
+}</code></pre>
+
+    <p><strong>Quick Conversion Method:</strong></p>
+    <ol>
+        <li>Open your CSV in Excel or Google Sheets</li>
+        <li>Use an online CSV to JSON converter: <a href="https://csvjson.com/csv2json">https://csvjson.com/csv2json</a></li>
+        <li>Adjust the field names to match our format</li>
+        <li>Save as <code>data/cards.json</code></li>
+    </ol>
+
+    <hr>
+
+    <h2 id="part-7">Part 7: Vibe Coding Prompts</h2>
+    <p>Now the fun part! Use these prompts with GitHub Copilot (Claude Sonnet 4.5 recommended) to build your application.</p>
+
+    <div class="prompt-box">
+        <h4>Prompt 1: Project Setup</h4>
+        <p>Open Copilot Chat and use this prompt:</p>
+        <pre><code>I'm building a baseball card collection website. I need you to create the basic project structure.
+
+Create these files:
+1. index.html - Main page with:
+   - Header with title "Grant's Baseball Card Collection"
+   - Search input field
+   - Filter dropdowns for Year and Team
+   - Sort buttons (by player name, year, value)
+   - A container div for the card grid
+
+2. styles/main.css - Modern styling with:
+   - CSS Grid layout for the cards
+   - Responsive design (works on mobile)
+   - Clean, modern appearance
+   - Hover effects on cards
+
+Please create the complete HTML and CSS files. Use a clean, professional sports-themed color scheme.</code></pre>
+    </div>
+
+    <div class="prompt-box">
+        <h4>Prompt 2: Create the Card Display Component</h4>
+        <pre><code>Now I need the JavaScript to display baseball cards. Create scripts/app.js that:
+
+1. Loads card data from data/cards.json
+2. Renders each card in a grid with:
+   - Card number
+   - Player name (First Last)
+   - Year and Team
+   - 2009 Beckett Value (formatted as currency)
+   - Current Value (formatted as currency, or "N/A" if not available)
+   - Percentage change (calculated from 2009 to current, with + or - indicator)
+
+3. Has functions for:
+   - Searching by player name
+   - Filtering by year
+   - Filtering by team
+   - Sorting by any column (ascending/descending)
+
+4. Shows the total collection value at the top
+
+Make the code well-commented so I can understand how it works.</code></pre>
+    </div>
+
+    <div class="prompt-box">
+        <h4>Prompt 3: Add Sample Data</h4>
+        <pre><code>Create a sample data/cards.json file with 10 example baseball cards. Include a mix of:
+- Different years (1980s-2000s)
+- Different teams
+- Different value ranges ($5-$500)
+- Include some famous players like Ken Griffey Jr, Derek Jeter, Cal Ripken Jr
+
+Format each card with:
+- id (number)
+- cardNumber (string)
+- firstName (string)
+- lastName (string)
+- year (number)
+- team (string)
+- value2009 (number - the Beckett value)
+- currentValue (number or null)
+
+For currentValue, set some as null and some with values higher or lower than 2009 to test the percentage change feature.</code></pre>
+    </div>
+
+    <div class="prompt-box">
+        <h4>Prompt 4: Add Search and Filter Functionality</h4>
+        <pre><code>Update the app.js to implement the search and filter functionality:
+
+1. Search should filter cards in real-time as the user types
+2. Search should match against firstName, lastName, and team
+3. Filters should stack (year AND team filter together)
+4. Include a "Clear Filters" button that resets everything
+5. Show a count of "Showing X of Y cards"
+
+Make sure the UI updates smoothly without page refresh.</code></pre>
+    </div>
+
+    <div class="prompt-box">
+        <h4>Prompt 5: Add Sorting Functionality</h4>
+        <pre><code>Add sorting to the card grid:
+
+1. Clicking a column header should sort by that column
+2. Clicking again should reverse the sort order
+3. Show an arrow indicator for current sort direction
+4. Sortable columns:
+   - Player Name (alphabetical by lastName)
+   - Year
+   - Team
+   - 2009 Value
+   - Current Value
+   - % Change
+
+Maintain sort order when filters are applied.</code></pre>
+    </div>
+
+    <div class="prompt-box">
+        <h4>Prompt 6: Style the Percentage Change</h4>
+        <pre><code>Update the CSS to visually indicate the percentage change:
+
+1. Positive changes should be:
+   - Green text
+   - Show a small up arrow icon
+   - Format like "+45.5%"
+
+2. Negative changes should be:
+   - Red text
+   - Show a small down arrow icon
+   - Format like "-12.3%"
+
+3. No change should be:
+   - Gray text
+   - Format like "0.0%"
+
+4. No current value should show:
+   - Italic gray text
+   - Display "N/A"</code></pre>
+    </div>
+
+    <div class="prompt-box">
+        <h4>Prompt 7: Add Price Update Feature</h4>
+        <pre><code>Create a way to manually update current card prices:
+
+1. Add an "Edit" button on each card
+2. Clicking it opens a modal with:
+   - Card info displayed
+   - Input field for current value
+   - Save and Cancel buttons
+
+3. When saved:
+   - Update the card data
+   - Recalculate percentage change
+   - Re-render the card
+   - Save to localStorage so changes persist
+
+Include basic form validation (must be a positive number).</code></pre>
+    </div>
+
+    <div class="prompt-box">
+        <h4>Prompt 8: Add Collection Statistics</h4>
+        <pre><code>Create a statistics summary section at the top of the page showing:
+
+1. Total cards in collection
+2. Total 2009 value (sum of all value2009)
+3. Total current value (sum of all currentValue where not null)
+4. Overall percentage change
+5. Number of cards that increased in value
+6. Number of cards that decreased in value
+7. Most valuable card (by current value)
+8. Best performer (highest % increase)
+
+Update these stats whenever the data changes.</code></pre>
+    </div>
+
+    <div class="prompt-box">
+        <h4>Prompt 9: Export Functionality</h4>
+        <pre><code>Add the ability to export the card collection:
+
+1. Add an "Export" button in the header
+2. Options to export as:
+   - CSV (for spreadsheets)
+   - JSON (for backup)
+
+3. The export should include all current data including updated prices
+4. Filename should include the date, like "cards-export-2024-01-15.csv"</code></pre>
+    </div>
+
+    <div class="prompt-box">
+        <h4>Prompt 10: Import Functionality</h4>
+        <pre><code>Add the ability to import cards from a CSV file:
+
+1. Add an "Import" button in the header
+2. Show a file picker for CSV files
+3. Parse the CSV with these columns:
+   - Card number
+   - Player Last name
+   - Player first name
+   - Year
+   - Team
+   - Becketts value
+
+4. Convert to our JSON format
+5. Add to existing collection (avoid duplicates based on cardNumber + year)
+6. Show a summary of "Imported X new cards, Y duplicates skipped"</code></pre>
+    </div>
+
+    <hr>
+
+    <h2 id="part-8">Part 8: Future Enhancements</h2>
+    <p>Once you've completed the basic project, here are ideas to level up:</p>
+
+    <h3>Add a Backend (FastAPI)</h3>
+    <pre><code>For the future: Create a FastAPI backend that:
+
+1. Serves the card data from a SQLite database
+2. Has endpoints for:
+   - GET /cards - list all cards
+   - GET /cards/{id} - get single card
+   - POST /cards - add new card
+   - PUT /cards/{id} - update card
+   - DELETE /cards/{id} - delete card
+
+3. Includes data validation with Pydantic models
+
+This would teach me about:
+- REST APIs
+- Database design
+- Python backend development</code></pre>
+
+    <h3>Add Real Price API Integration</h3>
+    <pre><code>Research and implement a real price API:
+
+1. Register for eBay Developer Program
+2. Use the Finding API to search for completed listings
+3. Calculate average sale price for each card
+4. Update prices on a schedule (maybe weekly)
+
+This would teach me about:
+- Working with external APIs
+- API authentication
+- Data processing</code></pre>
+
+    <h3>Add User Authentication</h3>
+    <pre><code>Add user accounts so multiple collectors can use the app:
+
+1. Sign up / Login pages
+2. Each user has their own collection
+3. Secure password storage
+4. Session management
+
+This would teach me about:
+- Security best practices
+- User management
+- Database relationships</code></pre>
+
+    <h3>Deploy to the Internet</h3>
+    <pre><code>Deploy this app so it's accessible online:
+
+Options:
+1. Vercel - great for static sites
+2. Netlify - similar to Vercel
+3. GitHub Pages - free, works with GitHub
+
+For the backend (if you add FastAPI):
+1. Railway
+2. Render
+3. Fly.io
+
+This would teach me about:
+- Deployment pipelines
+- Domain configuration
+- Production environments</code></pre>
+
+    <h3>Add a React Frontend</h3>
+    <pre><code>Rebuild the frontend using React:
+
+1. Set up with Vite
+2. Component structure:
+   - App
+   - Header
+   - SearchBar
+   - FilterPanel
+   - CardGrid
+   - CardItem
+   - EditModal
+   - Statistics
+
+This would teach me about:
+- Modern frontend frameworks
+- Component-based architecture
+- State management</code></pre>
+
+    <hr>
+
+    <h2 id="troubleshooting">Troubleshooting</h2>
+
+    <h3>Common Issues and Solutions</h3>
+
+    <h4>Homebrew Installation Fails</h4>
+    <p><strong>Problem:</strong> Permission denied errors</p>
+    <p><strong>Solution:</strong></p>
+    <pre><code>sudo chown -R $(whoami) /usr/local/share/zsh /usr/local/share/zsh/site-functions</code></pre>
+
+    <h4>VS Code Can't Find 'code' Command</h4>
+    <p><strong>Problem:</strong> <code>code: command not found</code></p>
+    <p><strong>Solution:</strong></p>
+    <ol>
+        <li>Open VS Code</li>
+        <li>Cmd + Shift + P</li>
+        <li>Type "Shell Command"</li>
+        <li>Select "Install 'code' command in PATH"</li>
+    </ol>
+
+    <h4>GitHub Copilot Not Working</h4>
+    <p><strong>Problem:</strong> Copilot suggestions not appearing</p>
+    <p><strong>Solutions:</strong></p>
+    <ol>
+        <li>Check you're signed into GitHub in VS Code</li>
+        <li>Verify your Copilot subscription is active</li>
+        <li>Check the Copilot icon in status bar - it should be active</li>
+        <li>Try restarting VS Code</li>
+    </ol>
+
+    <h4>Git Push Rejected</h4>
+    <p><strong>Problem:</strong> Permission denied when pushing</p>
+    <p><strong>Solutions:</strong></p>
+    <ol>
+        <li>Ensure you're signed into GitHub Desktop</li>
+        <li>Check repository permissions on GitHub</li>
+        <li>Try cloning with HTTPS instead of SSH</li>
+    </ol>
+
+    <h4>JSON Parse Errors</h4>
+    <p><strong>Problem:</strong> Cards not loading</p>
+    <p><strong>Solutions:</strong></p>
+    <ol>
+        <li>Validate JSON at <a href="https://jsonlint.com">https://jsonlint.com</a></li>
+        <li>Check for trailing commas</li>
+        <li>Ensure all strings are in double quotes</li>
+    </ol>
+
+    <h3>Getting Help</h3>
+    <ol>
+        <li><strong>GitHub Copilot Chat:</strong> Ask it to explain errors</li>
+        <li><strong>Stack Overflow:</strong> Search for error messages</li>
+        <li><strong>GitHub Issues:</strong> Check if others have the same problem</li>
+        <li><strong>MDN Web Docs:</strong> Best resource for HTML/CSS/JavaScript</li>
+    </ol>
+
+    <hr>
+
+    <h2>Quick Reference Commands</h2>
+
+    <h3>Terminal Commands</h3>
+    <pre><code># Check versions
+node --version
+npm --version
+git --version
+code --version
+
+# Navigate directories
+cd ~/Projects          # Go to Projects folder
+ls                     # List files
+pwd                    # Show current directory
+
+# Git commands
+git status            # See changes
+git add .             # Stage all changes
+git commit -m "msg"   # Commit with message
+git push              # Push to GitHub
+git pull              # Pull from GitHub</code></pre>
+
+    <h3>VS Code Shortcuts</h3>
+    <table>
+        <tr>
+            <th>Action</th>
+            <th>Shortcut</th>
+        </tr>
+        <tr>
+            <td>Open Command Palette</td>
+            <td>Cmd + Shift + P</td>
+        </tr>
+        <tr>
+            <td>Open File</td>
+            <td>Cmd + P</td>
+        </tr>
+        <tr>
+            <td>Save File</td>
+            <td>Cmd + S</td>
+        </tr>
+        <tr>
+            <td>Save All</td>
+            <td>Cmd + Option + S</td>
+        </tr>
+        <tr>
+            <td>Find in File</td>
+            <td>Cmd + F</td>
+        </tr>
+        <tr>
+            <td>Find in Project</td>
+            <td>Cmd + Shift + F</td>
+        </tr>
+        <tr>
+            <td>Toggle Terminal</td>
+            <td>Ctrl + `</td>
+        </tr>
+        <tr>
+            <td>Format Document</td>
+            <td>Shift + Option + F</td>
+        </tr>
+        <tr>
+            <td>Open Copilot Chat</td>
+            <td>Cmd + I</td>
+        </tr>
+    </table>
+
+    <h3>GitHub Desktop Shortcuts</h3>
+    <table>
+        <tr>
+            <th>Action</th>
+            <th>Shortcut</th>
+        </tr>
+        <tr>
+            <td>Commit</td>
+            <td>Cmd + Enter</td>
+        </tr>
+        <tr>
+            <td>Push</td>
+            <td>Cmd + P</td>
+        </tr>
+        <tr>
+            <td>Pull</td>
+            <td>Cmd + Shift + P</td>
+        </tr>
+        <tr>
+            <td>View on GitHub</td>
+            <td>Cmd + Shift + G</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h2>Conclusion</h2>
+    <p>Congratulations! By completing this tutorial, you've:</p>
+
+    <ol>
+        <li>Set up a professional development environment on your MacBook Air</li>
+        <li>Created a GitHub account and learned version control</li>
+        <li>Configured VS Code with essential extensions</li>
+        <li>Experienced AI-assisted coding with GitHub Copilot</li>
+        <li>Compared Claude Sonnet 4.5 and OpenAI GPT-4 (Claude wins!)</li>
+        <li>Built a functional web application from scratch</li>
+    </ol>
+
+    <h3>What's Next?</h3>
+    <ol>
+        <li><strong>Complete the baseball card project</strong> using the prompts in Part 7</li>
+        <li><strong>Import your actual card data</strong> from the CSV file</li>
+        <li><strong>Experiment with the future enhancements</strong> in Part 8</li>
+        <li><strong>Build more projects</strong> to reinforce your learning</li>
+    </ol>
+
+    <p>Remember: The best way to learn coding is by doing. Don't be afraid to experiment, break things, and ask your AI assistant for help!</p>
+
+    <hr>
+
+    <p style="text-align: center; font-weight: bold; font-size: 1.2em; margin-top: 40px;">Happy Coding!</p>
+
+    <p style="text-align: center; font-style: italic; color: #6b7280;"><em>This tutorial was created using Claude Sonnet 4.5 - proving once again that Claude wins!</em></p>
+
+    <hr>
+
+    <p style="text-align: center; margin-top: 30px; font-size: 0.9em; color: #9ca3af;">
+        <strong>To convert this to PDF:</strong> Open this HTML file in Chrome or Safari, then use File > Print > Save as PDF
+    </p>
+</body>
+</html>
