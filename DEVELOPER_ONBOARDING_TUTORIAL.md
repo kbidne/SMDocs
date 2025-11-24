@@ -79,22 +79,33 @@ brew --version
 
 You should see something like `Homebrew 4.x.x`
 
-### Step 1.2: Install Node.js
+### Step 1.2: Install R
 
-Node.js is required for modern web development.
+R is a programming language for statistical computing and data visualization.
 
 ```bash
-brew install node
+brew install r
 ```
 
 Verify installation:
 
 ```bash
-node --version
-npm --version
+R --version
 ```
 
-### Step 1.3: Install Git
+### Step 1.3: Install RStudio
+
+RStudio is the most popular IDE for R development.
+
+1. Go to [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/)
+2. Click **"Download RStudio Desktop"**
+3. Download the macOS version
+4. Open the downloaded `.dmg` file
+5. Drag RStudio to your Applications folder
+
+**Note**: You'll use both VS Code (for GitHub Copilot AI assistance) and RStudio (for running R code). They work great together!
+
+### Step 1.4: Install Git
 
 Git is for version control (tracking changes to your code).
 
@@ -108,7 +119,7 @@ Verify installation:
 git --version
 ```
 
-### Step 1.4: Configure Git with Your Information
+### Step 1.5: Configure Git with Your Information
 
 ```bash
 git config --global user.name "Your Name"
@@ -192,25 +203,25 @@ Open VS Code and install these extensions:
 **Required Extensions:**
 - **GitHub Copilot** - AI coding assistant (you'll configure this in Part 4)
 - **GitHub Copilot Chat** - Chat interface for Copilot
-- **Live Server** - Launch local dev server with live reload
-- **Prettier - Code Formatter** - Auto-format your code
-- **ESLint** - JavaScript linting
+- **R** - R language support (by REditorSupport)
+- **R Debugger** - Debug R code in VS Code
 - **SQLite Viewer** - View SQLite databases in VS Code
 
 **Optional but Helpful:**
 - **Material Icon Theme** - Better file icons
-- **Auto Rename Tag** - Rename paired HTML tags
 - **GitLens** - Enhanced Git visualization
+- **Rainbow CSV** - Colorize CSV columns
 
 ### Step 3.4: Configure VS Code Settings
 
 1. Press `Cmd + ,` to open Settings
 2. Search for and configure these settings:
 
-- **Editor: Format On Save** - Check this box
-- **Editor: Default Formatter** - Set to "Prettier - Code formatter"
 - **Editor: Tab Size** - Set to 2
 - **Files: Auto Save** - Set to "afterDelay"
+- **R: Bracketed Paste** - Check this box (better R console experience)
+
+**Note**: Most R code formatting will be done in RStudio, so VS Code settings are minimal.
 
 ---
 
@@ -297,8 +308,8 @@ Create a simple JavaScript function that calculates the percentage change betwee
 2. Click the **+** icon in the top-right
 3. Select **"New repository"**
 4. Repository name: `baseball-card-collection`
-5. Description: `A web app to manage and track baseball card values`
-6. Select **"Public"** or **"Private"**
+5. Description: `An R Shiny app to manage and track baseball card values`
+6. Select **"Private"** (keep your collection data private!)
 7. Check **"Add a README file"**
 8. Click **"Create repository"**
 
@@ -307,11 +318,12 @@ Create a simple JavaScript function that calculates the percentage change betwee
 1. Open GitHub Desktop
 2. Go to **File > New Repository**
 3. Name: `baseball-card-collection`
-4. Description: `A web app to manage and track baseball card values`
+4. Description: `An R Shiny app to manage and track baseball card values`
 5. Choose a local path (e.g., `/Users/yourname/Projects`)
 6. Check **"Initialize with a README"**
 7. Click **"Create Repository"**
 8. Click **"Publish repository"** to push to GitHub
+9. **Important**: Make sure "Keep this code private" is checked (it should be checked by default)
 
 ### Step 5.2: Clone the Repository to Your Computer
 
@@ -378,36 +390,36 @@ A web application to track and manage baseball card values.
 
 ### Project Architecture
 
-For this beginner project, we'll use a simple but effective tech stack:
+For this beginner project, we'll use R Shiny - a framework that lets you build interactive web apps using R:
 
 ```
 baseball-card-collection/
-├── index.html          # Main page
-├── styles/
-│   └── main.css        # Styling
-├── scripts/
-│   ├── app.js          # Main application logic
-│   ├── data.js         # Card data (converted from CSV)
-│   └── api.js          # Price lookup functions
+├── app.R               # Main Shiny application
 ├── data/
-│   └── cards.json      # Your card collection data
+│   └── cards.csv       # Your card collection data
+├── www/
+│   └── styles.css      # Custom styling (optional)
+├── R/
+│   └── helpers.R       # Helper functions
 └── README.md
 ```
 
 ### Technology Choices
 
-**Frontend:**
-- HTML5, CSS3, JavaScript (vanilla)
-- No framework needed for this beginner project
-- Easy to understand and debug
+**Framework:**
+- R Shiny - creates interactive web apps with pure R
+- Perfect since you already know R!
+- Handles both frontend and backend
 
 **Data Storage:**
-- JSON file (converted from your CSV)
-- Could upgrade to SQLite later
+- CSV file (your existing format works great!)
+- Could upgrade to SQLite database later
 
-**Styling:**
-- CSS Grid for the card layout
-- CSS Variables for easy theming
+**Key R Packages:**
+- `shiny` - web application framework
+- `DT` - interactive data tables
+- `dplyr` - data manipulation
+- `ggplot2` - visualizations (optional)
 
 **Price API Options:**
 
@@ -429,9 +441,9 @@ Unfortunately, Beckett doesn't have a public API. Here are alternatives:
 
 For this tutorial, we'll start with **manual price entry** and include code structure for an API integration you can add later.
 
-### Step 6.1: Convert Your CSV to JSON
+### Step 6.1: Prepare Your CSV Data
 
-Your CSV file "grants baseball cards" has these columns:
+Great news - R reads CSV files directly! Your CSV file "grants baseball cards" has these columns:
 - Card number
 - Player Last name
 - Player first name
@@ -439,262 +451,244 @@ Your CSV file "grants baseball cards" has these columns:
 - Team
 - Becketts value as of 2/19/2009
 
-We'll need to convert this to JSON format. Here's the structure:
+**Clean up your CSV headers:**
 
-```json
-{
-  "cards": [
-    {
-      "id": 1,
-      "cardNumber": "123",
-      "firstName": "Ken",
-      "lastName": "Griffey Jr",
-      "year": 1989,
-      "team": "Seattle Mariners",
-      "value2009": 45.00,
-      "currentValue": null
-    }
-  ]
-}
+Make sure your CSV has clean column names (no spaces). Rename them to:
+```
+card_number,last_name,first_name,year,team,value_2009
 ```
 
-**Quick Conversion Method:**
+You can do this in Excel/Google Sheets:
+1. Open your CSV
+2. Rename the header row to match above
+3. Add a new column: `current_value` (leave it empty for now)
+4. Save as `data/cards.csv`
 
-1. Open your CSV in Excel or Google Sheets
-2. Use an online CSV to JSON converter: https://csvjson.com/csv2json
-3. Adjust the field names to match our format
-4. Save as `data/cards.json`
+**Example format:**
+```csv
+card_number,last_name,first_name,year,team,value_2009,current_value
+123,Griffey Jr,Ken,1989,Seattle Mariners,45.00,
+456,Jeter,Derek,1993,New York Yankees,125.00,
+```
 
 ---
 
 ## Part 7: Vibe Coding Prompts
 
-Now the fun part! Use these prompts with GitHub Copilot (Claude Sonnet 4.5 recommended) to build your application.
+Now the fun part! Use these prompts with GitHub Copilot (Claude Sonnet 4.5 recommended) to build your R Shiny application.
 
-### Prompt 1: Project Setup
+**Workflow**: Write prompts in VS Code with Copilot, then copy the R code to RStudio to run it.
+
+### Prompt 1: Project Setup - Basic Shiny App
 
 Open Copilot Chat and use this prompt:
 
 ```
-I'm building a baseball card collection website. I need you to create the basic project structure.
+I'm building a baseball card collection app using R Shiny. Create an app.R file that:
 
-Create these files:
-1. index.html - Main page with:
-   - Header with title "Grant's Baseball Card Collection"
-   - Search input field
-   - Filter dropdowns for Year and Team
-   - Sort buttons (by player name, year, value)
-   - A container div for the card grid
+1. Has a UI with:
+   - Title: "Grant's Baseball Card Collection"
+   - A search text input
+   - Dropdown filters for Year and Team
+   - A data table to display the cards
+   - A statistics summary section at the top
 
-2. styles/main.css - Modern styling with:
-   - CSS Grid layout for the cards
-   - Responsive design (works on mobile)
-   - Clean, modern appearance
-   - Hover effects on cards
+2. Uses these R packages:
+   - shiny
+   - DT (for interactive tables)
+   - dplyr (for data manipulation)
 
-Please create the complete HTML and CSS files. Use a clean, professional sports-themed color scheme.
-```
+3. Reads card data from "data/cards.csv"
 
-### Prompt 2: Create the Card Display Component
-
-```
-Now I need the JavaScript to display baseball cards. Create scripts/app.js that:
-
-1. Loads card data from data/cards.json
-2. Renders each card in a grid with:
-   - Card number
-   - Player name (First Last)
-   - Year and Team
-   - 2009 Beckett Value (formatted as currency)
-   - Current Value (formatted as currency, or "N/A" if not available)
-   - Percentage change (calculated from 2009 to current, with + or - indicator)
-
-3. Has functions for:
-   - Searching by player name
-   - Filtering by year
-   - Filtering by team
-   - Sorting by any column (ascending/descending)
-
-4. Shows the total collection value at the top
-
-Make the code well-commented so I can understand how it works.
-```
-
-### Prompt 3: Add Sample Data
-
-```
-Create a sample data/cards.json file with 10 example baseball cards. Include a mix of:
-- Different years (1980s-2000s)
-- Different teams
-- Different value ranges ($5-$500)
-- Include some famous players like Ken Griffey Jr, Derek Jeter, Cal Ripken Jr
-
-Format each card with:
-- id (number)
-- cardNumber (string)
-- firstName (string)
-- lastName (string)
-- year (number)
-- team (string)
-- value2009 (number - the Beckett value)
-- currentValue (number or null)
-
-For currentValue, set some as null and some with values higher or lower than 2009 to test the percentage change feature.
-```
-
-### Prompt 4: Add Search and Filter Functionality
-
-```
-Update the app.js to implement the search and filter functionality:
-
-1. Search should filter cards in real-time as the user types
-2. Search should match against firstName, lastName, and team
-3. Filters should stack (year AND team filter together)
-4. Include a "Clear Filters" button that resets everything
-5. Show a count of "Showing X of Y cards"
-
-Make sure the UI updates smoothly without page refresh.
-```
-
-### Prompt 5: Add Sorting Functionality
-
-```
-Add sorting to the card grid:
-
-1. Clicking a column header should sort by that column
-2. Clicking again should reverse the sort order
-3. Show an arrow indicator for current sort direction
-4. Sortable columns:
-   - Player Name (alphabetical by lastName)
+4. The data table should show:
+   - Card Number
+   - Player Name (First Last combined)
    - Year
    - Team
-   - 2009 Value
-   - Current Value
-   - % Change
+   - 2009 Value (formatted as currency)
+   - Current Value (formatted as currency)
+   - % Change (calculated column)
 
-Maintain sort order when filters are applied.
+Please create a complete, working app.R file with comments explaining each section.
 ```
 
-### Prompt 6: Style the Percentage Change
+### Prompt 2: Create Sample Data
 
 ```
-Update the CSS to visually indicate the percentage change:
+Create a sample CSV file for testing at data/cards.csv with 10 baseball cards.
 
-1. Positive changes should be:
-   - Green text
-   - Show a small up arrow icon
-   - Format like "+45.5%"
+Columns needed:
+- card_number
+- last_name
+- first_name
+- year
+- team
+- value_2009
+- current_value
 
-2. Negative changes should be:
-   - Red text
-   - Show a small down arrow icon
-   - Format like "-12.3%"
+Include:
+- Different years (1980s-2000s)
+- Different teams
+- Values ranging from $5 to $500
+- Famous players like Ken Griffey Jr, Derek Jeter, Cal Ripken Jr
+- Some current_value entries empty (NA), some higher than 2009, some lower
 
-3. No change should be:
-   - Gray text
-   - Format like "0.0%"
-
-4. No current value should show:
-   - Italic gray text
-   - Display "N/A"
+This will help test the percentage change calculations.
 ```
 
-### Prompt 7: Add Price Update Feature
+### Prompt 3: Add Search and Filter Functionality
 
 ```
-Create a way to manually update current card prices:
+Update my Shiny app to add reactive search and filtering:
 
-1. Add an "Edit" button on each card
-2. Clicking it opens a modal with:
-   - Card info displayed
-   - Input field for current value
+1. The search box should filter cards as the user types
+2. Search should match against first_name, last_name, and team
+3. The Year dropdown should populate with unique years from the data
+4. The Team dropdown should populate with unique teams from the data
+5. Filters should stack together (year AND team AND search)
+6. Add a "Clear Filters" button that resets everything
+7. Show "Displaying X of Y cards" below the filters
+
+Use reactive expressions for efficient filtering.
+```
+
+### Prompt 4: Style the Data Table
+
+```
+Update the DT datatable in my Shiny app to:
+
+1. Format the value columns as currency ($XX.XX)
+2. Color-code the % Change column:
+   - Green for positive values (with + sign)
+   - Red for negative values
+   - Gray for zero or NA
+3. Make the table sortable by clicking column headers
+4. Add pagination (show 25 cards per page)
+5. Make rows highlight on hover
+
+Use DT's formatCurrency and formatStyle functions.
+```
+
+### Prompt 5: Add Collection Statistics
+
+```
+Add a statistics summary panel to my Shiny app that shows:
+
+1. Total cards in collection
+2. Total 2009 value (sum)
+3. Total current value (sum, excluding NAs)
+4. Overall % change in collection value
+5. Cards that increased in value (count)
+6. Cards that decreased in value (count)
+7. Most valuable card (name and current value)
+8. Best performer (name and % increase)
+
+Display these in a nice grid of value boxes at the top of the app.
+Use shinydashboard or bslib for styled value boxes.
+```
+
+### Prompt 6: Add Price Update Feature
+
+```
+Add the ability to update current card prices in my Shiny app:
+
+1. Add an "Edit" action button in each row of the data table
+2. When clicked, show a modal dialog with:
+   - Card info displayed (read-only)
+   - Numeric input for current value
    - Save and Cancel buttons
 
 3. When saved:
-   - Update the card data
-   - Recalculate percentage change
-   - Re-render the card
-   - Save to localStorage so changes persist
+   - Update the reactive data
+   - Recalculate the % change
+   - Refresh the table and statistics
 
-Include basic form validation (must be a positive number).
+4. Add validation (must be a positive number)
+
+Use showModal() and modalDialog() for the popup.
 ```
 
-### Prompt 8: Add Collection Statistics
+### Prompt 7: Save Changes to CSV
 
 ```
-Create a statistics summary section at the top of the page showing:
+Add the ability to persist changes in my Shiny app:
 
-1. Total cards in collection
-2. Total 2009 value (sum of all value2009)
-3. Total current value (sum of all currentValue where not null)
-4. Overall percentage change
-5. Number of cards that increased in value
-6. Number of cards that decreased in value
-7. Most valuable card (by current value)
-8. Best performer (highest % increase)
+1. When a card price is updated, save the changes back to the CSV file
+2. Add a "Save All Changes" button in the header
+3. Show a notification when changes are saved
+4. Add a "Discard Changes" button that reloads the original data
 
-Update these stats whenever the data changes.
+Use write.csv() to save and showNotification() for feedback.
 ```
 
-### Prompt 9: Export Functionality
+### Prompt 8: Export Functionality
 
 ```
-Add the ability to export the card collection:
+Add export features to my Shiny app:
 
-1. Add an "Export" button in the header
-2. Options to export as:
-   - CSV (for spreadsheets)
-   - JSON (for backup)
+1. Add a "Download CSV" button that exports all card data
+2. Add a "Download Report" button that creates a summary PDF
+3. Include the current filter state in the export
+4. Filename should include today's date (e.g., "cards-2024-01-15.csv")
 
-3. The export should include all current data including updated prices
-4. Filename should include the date, like "cards-export-2024-01-15.csv"
+Use downloadHandler() for the downloads.
 ```
 
-### Prompt 10: Import Functionality
+### Prompt 9: Add Visualizations
 
 ```
-Add the ability to import cards from a CSV file:
+Add a visualization tab to my Shiny app with these charts:
 
-1. Add an "Import" button in the header
-2. Show a file picker for CSV files
-3. Parse the CSV with these columns:
-   - Card number
-   - Player Last name
-   - Player first name
-   - Year
-   - Team
-   - Becketts value
+1. Bar chart: Top 10 most valuable cards (current value)
+2. Pie chart: Cards by team
+3. Line chart: Average card value by year
+4. Scatter plot: 2009 value vs current value (to see correlation)
 
-4. Convert to our JSON format
-5. Add to existing collection (avoid duplicates based on cardNumber + year)
-6. Show a summary of "Imported X new cards, Y duplicates skipped"
+Use ggplot2 for the charts and make them reactive to filters.
+Add a new tab or panel to hold these visualizations.
+```
+
+### Prompt 10: Polish the UI
+
+```
+Improve the look and feel of my Shiny app:
+
+1. Use a sports-themed color scheme (blues and grays)
+2. Add a custom CSS file in www/styles.css
+3. Make the layout responsive for different screen sizes
+4. Add icons to buttons using shiny::icon()
+5. Improve spacing and typography
+6. Add a footer with "Last updated: [date]"
+
+Use bslib or shinythemes for a modern look.
 ```
 
 ---
 
 ## Part 8: Future Enhancements
 
-Once you've completed the basic project, here are ideas to level up:
+Once you've completed the basic project, here are ideas to level up your R skills:
 
-### Add a Backend (FastAPI)
+### Add a SQLite Database
 
 ```
-For the future: Create a FastAPI backend that:
+Upgrade from CSV to a proper database:
 
-1. Serves the card data from a SQLite database
-2. Has endpoints for:
-   - GET /cards - list all cards
-   - GET /cards/{id} - get single card
-   - POST /cards - add new card
-   - PUT /cards/{id} - update card
-   - DELETE /cards/{id} - delete card
+1. Use RSQLite package to create a local database
+2. Create tables for:
+   - cards (your collection)
+   - price_history (track changes over time)
+   - teams (reference data)
 
-3. Includes data validation with Pydantic models
+3. Add functions to:
+   - Query cards efficiently
+   - Track price updates with timestamps
+   - Generate historical reports
 
-This would teach me about:
-- REST APIs
-- Database design
-- Python backend development
+This would teach you about:
+- Database design and SQL
+- Data persistence
+- Relational data modeling
 ```
 
 ### Add Real Price API Integration
@@ -703,73 +697,88 @@ This would teach me about:
 Research and implement a real price API:
 
 1. Register for eBay Developer Program
-2. Use the Finding API to search for completed listings
-3. Calculate average sale price for each card
-4. Update prices on a schedule (maybe weekly)
+2. Use httr2 package to call the Finding API
+3. Search for completed listings by player/year
+4. Calculate average sale price for each card
+5. Schedule weekly updates with cronR
 
-This would teach me about:
-- Working with external APIs
-- API authentication
-- Data processing
+This would teach you about:
+- Working with REST APIs in R
+- API authentication (OAuth)
+- Data processing and cleaning
 ```
 
-### Add User Authentication
+### Add Plumber API Backend
 
 ```
-Add user accounts so multiple collectors can use the app:
+Create a REST API for your card data using Plumber:
 
-1. Sign up / Login pages
-2. Each user has their own collection
-3. Secure password storage
-4. Session management
+1. Install plumber package
+2. Create endpoints:
+   - GET /cards - list all cards
+   - GET /cards/{id} - get single card
+   - POST /cards - add new card
+   - PUT /cards/{id} - update card
+   - DELETE /cards/{id} - delete card
 
-This would teach me about:
-- Security best practices
-- User management
-- Database relationships
+3. Connect your Shiny app to the API
+
+This would teach you about:
+- Building APIs with R
+- RESTful design patterns
+- Separating frontend from backend
 ```
 
-### Deploy to the Internet
+### Deploy to shinyapps.io
 
 ```
-Deploy this app so it's accessible online:
+Deploy your app so it's accessible online:
 
-Options:
-1. Vercel - great for static sites
-2. Netlify - similar to Vercel
-3. GitHub Pages - free, works with GitHub
+1. Create account at shinyapps.io (free tier available)
+2. Install rsconnect package
+3. Configure your account credentials
+4. Deploy with: rsconnect::deployApp()
 
-For the backend (if you add FastAPI):
-1. Railway
-2. Render
-3. Fly.io
+Alternative: Deploy to your own server with Shiny Server
 
-This would teach me about:
-- Deployment pipelines
-- Domain configuration
-- Production environments
+This would teach you about:
+- Cloud deployment
+- Environment configuration
+- Sharing R applications
 ```
 
-### Add a React Frontend
+### Add Machine Learning Price Predictions
 
 ```
-Rebuild the frontend using React:
+Use R's ML capabilities to predict card values:
 
-1. Set up with Vite
-2. Component structure:
-   - App
-   - Header
-   - SearchBar
-   - FilterPanel
-   - CardGrid
-   - CardItem
-   - EditModal
-   - Statistics
+1. Use tidymodels for ML workflow
+2. Features: year, team, player stats, condition
+3. Train a model on historical price data
+4. Predict future values for your collection
+5. Add a "Predicted Value" column
 
-This would teach me about:
-- Modern frontend frameworks
-- Component-based architecture
-- State management
+This would teach you about:
+- Machine learning in R
+- Feature engineering
+- Model evaluation
+```
+
+### Create an R Package
+
+```
+Package your card collection tools as an R package:
+
+1. Use usethis to create package structure
+2. Document functions with roxygen2
+3. Add unit tests with testthat
+4. Create vignettes with example usage
+5. Share on GitHub for others to use
+
+This would teach you about:
+- R package development
+- Documentation best practices
+- Software engineering in R
 ```
 
 ---
@@ -816,14 +825,25 @@ sudo chown -R $(whoami) /usr/local/share/zsh /usr/local/share/zsh/site-functions
 2. Check repository permissions on GitHub
 3. Try cloning with HTTPS instead of SSH
 
-#### JSON Parse Errors
+#### R Package Installation Errors
 
-**Problem**: Cards not loading
+**Problem**: Can't install packages
 
 **Solutions**:
-1. Validate JSON at https://jsonlint.com
-2. Check for trailing commas
-3. Ensure all strings are in double quotes
+1. Make sure R is properly installed: `R --version`
+2. Try installing from RStudio instead of terminal
+3. Check for error messages about missing system libraries
+4. On Mac, you may need Xcode tools: `xcode-select --install`
+
+#### CSV Loading Errors
+
+**Problem**: Cards not loading in Shiny app
+
+**Solutions**:
+1. Check the file path is correct (relative to app.R)
+2. Ensure column names match what your code expects
+3. Look for encoding issues (save as UTF-8)
+4. Check for missing values - use `na.strings` in read.csv()
 
 ### Getting Help
 
@@ -840,8 +860,7 @@ sudo chown -R $(whoami) /usr/local/share/zsh /usr/local/share/zsh/site-functions
 
 ```bash
 # Check versions
-node --version
-npm --version
+R --version
 git --version
 code --version
 
@@ -856,6 +875,11 @@ git add .             # Stage all changes
 git commit -m "msg"   # Commit with message
 git push              # Push to GitHub
 git pull              # Pull from GitHub
+
+# R commands (in R console)
+install.packages("shiny")     # Install a package
+library(shiny)                # Load a package
+runApp()                      # Run Shiny app in current directory
 ```
 
 ### VS Code Shortcuts
